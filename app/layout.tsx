@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import VoiceReader from '@/components/VoiceReader';
 import Footer from '@/components/Footer';
+import DevelopmentAlert from '@/components/DevelopmentAlert';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-[#fff8f0] text-[#4a2b22] antialiased">
         <Navbar />
         <VoiceReader />
+        <DevelopmentAlert />
         {children}
         <Footer />
       </body>
