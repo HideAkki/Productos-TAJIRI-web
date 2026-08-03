@@ -34,12 +34,12 @@ const products: Product[] = [
     details:
       'Nuestro suero costeño es ligero, ligeramente salado y perfecto para complementar arepas, sopas o para marinar. Disponible en dos formatos para llegar a la mesa con la dosis justa de frescura.',
     variants: ['16 oz', '9 oz'],
-    imageLabel: 'Botella de vidrio tradicional',
+    imageLabel: 'Vaso Gold de plástico',
     features: ['Cremoso', 'Elaborado artesanalmente', 'Leche de búfala', 'Conservación refrigerada'],
     images: [
-      { src: '/Nala.png', alt: 'Botella de suero costeño sobre tela natural', label: 'Etiqueta frontal' },
-      { src: '/logo-tajiri.png', alt: 'Detalle de botella con tapa', label: 'Detalle del envase' },
-      { src: '/Nala.png', alt: 'Suero servido en vaso', label: 'Servido en vaso' },
+      { src: '', alt: 'Botella de suero costeño sobre tela natural', label: 'Etiqueta frontal' },
+      { src: '', alt: 'Detalle de botella con tapa', label: 'Detalle del envase' },
+      { src: '', alt: 'Suero servido en vaso', label: 'Servido en vaso' },
     ],
     color: 'from-[#8f1111] to-[#4a2b22]',
   },
@@ -50,12 +50,12 @@ const products: Product[] = [
     details:
       'Yogur griego artesanal con cuerpo cremoso y textura firme. Ideal para acompañar frutas, granola o recetas saladas que necesitan un frescor concentrado.',
     variants: ['16 oz', '9 oz'],
-    imageLabel: 'Tarrina cremosa',
+    imageLabel: 'Vaso Gold de plástico',
     features: ['Alta proteína', 'Textura consistente', 'Ideal en bowls', 'Artesanal'],
     images: [
-      { src: '/logo-tajiri.png', alt: 'Tarrina de yogur griego con tapa', label: 'Tarrina elegante' },
-      { src: '/Nala.png', alt: 'Yogur griego servido con fruta', label: 'Detalle servido' },
-      { src: '/logo-tajiri.png', alt: 'Etiqueta del yogur griego', label: 'Etiqueta minimalista' },
+      { src: '', alt: 'Tarrina de yogur griego con tapa', label: 'Tarrina elegante' },
+      { src: '', alt: 'Yogur griego servido con fruta', label: 'Detalle servido' },
+      { src: '', alt: 'Etiqueta del yogur griego', label: 'Etiqueta minimalista' },
     ],
     color: 'from-[#4a2b22] to-[#8f1111]',
   },
@@ -65,13 +65,13 @@ const products: Product[] = [
     description: 'Listo para llevar, suave y delicado con cuerpo natural.',
     details:
       'Fresco y práctico, este yogur bebible es perfecto para la mañana o merienda. Combina la riqueza de la leche búfala con una sensación ligera y nutritiva.',
-    variants: ['16 oz', '9 oz'],
-    imageLabel: 'Botella de agarre fácil',
+    size: 'None',
+    imageLabel: 'Vaso Gold de plástico',
     features: ['Fresco y ligero', 'Rico en probióticos', 'Ideal para la mañana', 'Conveniente'],
     images: [
-      { src: '/logo-tajiri.png', alt: 'Botella de yogur bebible con fondo neutro', label: 'Botella de agarre fácil' },
-      { src: '/Nala.png', alt: 'Yogur bebible servido en vaso', label: 'Inspiración para la mañana' },
-      { src: '/logo-tajiri.png', alt: 'Detalle del logo en botella', label: 'Etiqueta refinada' },
+      { src: '', alt: 'Botella de yogur bebible con fondo neutro', label: 'Botella de agarre fácil' },
+      { src: '', alt: 'Yogur bebible servido en vaso', label: 'Inspiración para la mañana' },
+      { src: '', alt: 'Detalle del logo en botella', label: 'Etiqueta refinada' },
     ],
     color: 'from-[#e4b45f] to-[#f3d48a]',
   },
@@ -82,12 +82,12 @@ const products: Product[] = [
     details:
       'Crujiente y sabroso, el Su-Kukayo es una opción tradicional para compartir o disfrutar como snack. Su preparación artesanal garantiza textura y sabor auténtico.',
     size: '250 g',
-    imageLabel: 'Snack crocante',
+    imageLabel: 'Vaso Gold de plástico',
     features: ['Croquante', 'Hecho a mano', 'Textura noble', 'Sabor reconfortante'],
     images: [
-      { src: '/Nala.png', alt: 'Paquete de Su-Kukayo abierto', label: 'Paquete abierto' },
-      { src: '/logo-tajiri.png', alt: 'Bocados crujientes en plato', label: 'Bocados crujientes' },
-      { src: '/Nala.png', alt: 'Presentación del snack en mesa', label: 'Presentación elegante' },
+      { src: '', alt: 'Paquete de Su-Kukayo abierto', label: 'Paquete abierto' },
+      { src: '', alt: 'Bocados crujientes en plato', label: 'Bocados crujientes' },
+      { src: '', alt: 'Presentación del snack en mesa', label: 'Presentación elegante' },
     ],
     color: 'from-[#8f1111] to-[#e4b45f]',
   },
@@ -216,20 +216,24 @@ export default function ProductosPage() {
               <div className="grid h-full grid-cols-1 gap-6 overflow-hidden lg:grid-cols-[1.55fr_1fr]">
                 <div className="relative flex flex-col bg-[#111111] p-6 sm:p-8 lg:p-10">
                   <motion.div
-                    key={selectedProduct.images[currentSlide].src}
+                    key={currentSlide}
                     initial={{ opacity: 0, scale: 0.995 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.995 }}
                     transition={{ duration: 0.32, ease: 'easeOut' }}
                     className="relative flex-1 overflow-hidden rounded-[2rem] bg-black"
                   >
-                    <Image
-                      src={selectedProduct.images[currentSlide].src}
-                      alt={selectedProduct.images[currentSlide].alt}
-                      fill
-                      className="h-full w-full object-contain"
-                      sizes="90vw"
-                    />
+                    {selectedProduct.images[currentSlide].src ? (
+                      <Image
+                        src={selectedProduct.images[currentSlide].src}
+                        alt={selectedProduct.images[currentSlide].alt}
+                        fill
+                        className="h-full w-full object-contain"
+                        sizes="90vw"
+                      />
+                    ) : (
+                      <div className="h-full w-full bg-white/5" />
+                    )}
                   </motion.div>
 
                   <div className="mt-5 flex flex-col gap-3">
@@ -240,7 +244,7 @@ export default function ProductosPage() {
                   <div className="mt-6 flex gap-3 overflow-x-auto pb-2">
                     {selectedProduct.images.map((image, index) => (
                       <button
-                        key={`${image.src}-${index}`}
+                        key={index}
                         type="button"
                         onClick={() => setCurrentSlide(index)}
                         className={`relative h-20 min-w-[5.5rem] overflow-hidden rounded-[1.5rem] border transition duration-300 ${
@@ -249,12 +253,18 @@ export default function ProductosPage() {
                             : 'border-white/15'
                         }`}
                       >
-                        <Image src={image.src} alt={image.alt} fill className="object-cover" />
-                        <div
-                          className={`absolute inset-0 transition ${
-                            currentSlide === index ? 'bg-black/10' : 'bg-black/20'
-                          }`}
-                        />
+                        {image.src ? (
+                          <>
+                            <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                            <div
+                              className={`absolute inset-0 transition ${
+                                currentSlide === index ? 'bg-black/10' : 'bg-black/20'
+                              }`}
+                            />
+                          </>
+                        ) : (
+                          <div className="absolute inset-0 bg-white/10" />
+                        )}
                       </button>
                     ))}
                   </div>

@@ -28,7 +28,7 @@ Esa historia despertó en mí una idea que cambió mi manera de pensar. Yo no qu
 A partir de ese momento comenzó una etapa de estudio, observación y aprendizaje. Pasaba horas leyendo e investigando sobre las hierbas aromáticas y sus posibles aplicaciones. Poco a poco fui comprendiendo que las grandes oportunidades no siempre consisten en inventar algo nuevo, sino en observar lo que ya existe y descubrir una forma diferente de agregarle valor. Esa fue la verdadera semilla de Productos TAJIRI.
 
 Hoy, al mirar hacia atrás, sigo agradeciendo profundamente a mi amigo Fernando Navarro Ferro. Aquel regalo, hecho con la sencillez de una amistad, fue la chispa que despertó una idea que terminaría convirtiéndose en el proyecto más importante de mi vida.`,
-      image: '/Nala.png',
+      image: '',
       caption: 'Origen y curiosidad',
     },
     {
@@ -44,7 +44,7 @@ Ese mismo año, BANTOO Diseño también desarrolló la primera página web de Pr
 En esa etapa también se trabajó en la presentación comercial del producto. Empresas como Bolten Ltda., con el acompañamiento de Óscar Duque, aportaron en el desarrollo del sistema de empaque y termoencogido que permitió presentar los productos de una forma más profesional. También se realizaron consultas técnicas con Casa de la Licuadora Industrial, buscando equipos y soluciones que ayudaran a fortalecer la capacidad de producción.
 
 Cada uno de esos pasos fue una victoria. Registrar una marca, construir una imagen, desarrollar etiquetas, buscar proveedores, diseñar empaques y salir al mercado son logros que hacen parte de la memoria de Productos TAJIRI. Aunque esa primera etapa dejó grandes aprendizajes, también dejó algo muy valioso: la certeza de que una idea puede convertirse en empresa cuando se trabaja con disciplina, visión y el apoyo de personas que creen en el proyecto.`,
-      image: '/logo-tajiri.png',
+      image: '',
       caption: 'Primeras victorias',
     },
     {
@@ -68,7 +68,7 @@ Posteriormente dediqué un tiempo a otros proyectos personales y empresariales, 
 Entonces regresé al punto donde realmente estaba mi pasión: el desarrollo de alimentos artesanales. A comienzos de 2024 retomé la producción de suero costeño, inicialmente con apenas cuatro litros semanales de leche de vaca. Poco después descubrí las extraordinarias cualidades de la leche de búfala y tomé una decisión que cambiaría nuevamente el rumbo de Productos TAJIRI.
 
 Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría origen a los productos que hoy representan la esencia de nuestra marca.`,
-      image: '/Nala.png',
+      image: '',
       caption: 'Renacimiento',
     },
   ];
@@ -195,6 +195,7 @@ Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría
                 Ingresé a Ecopetrol con estudios de primaria y, mientras trabajaba, me formé como administrador de empresas y realicé dos especializaciones. Después de 31 años de servicio, terminé mi carrera como coordinador de mantenimiento de edificios en Bogotá, con 150 personas bajo mi responsabilidad.
               </p>
               <p className="mt-4 text-lg leading-8 text-[#4a2b22]/80">
+
                 Durante cerca de 14 años tuvimos la finca El Mirador, en Nimaima, Cundinamarca, donde sembramos alrededor de 2.000 árboles frutales. Allí fortalecí mi interés por el campo, los alimentos y el aprovechamiento de los recursos.
               </p>
               <p className="mt-4 text-lg leading-8 text-[#4a2b22]/80">

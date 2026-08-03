@@ -51,12 +51,18 @@ export default function TimelineCard({ item, onOpen }: TimelineCardProps) {
 
         <div className="overflow-hidden rounded-[1.75rem] border border-[#f3d48a]/15 bg-[#fdf7ef] shadow-inner">
           <div className="relative h-64 w-full sm:h-72">
-            <Image
-              src={item.image}
-              alt={item.title}
-              fill
-              className="object-cover transition duration-700 group-hover:scale-105"
-            />
+            {item.image ? (
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover transition duration-700 group-hover:scale-105"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-[#f7f1e8] text-center text-sm uppercase tracking-[0.3em] text-[#4a2b22]/60">
+                Imagen por definir
+              </div>
+            )}
           </div>
         </div>
       </div>
