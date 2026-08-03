@@ -3,7 +3,7 @@
 import Image, { type ImageProps } from 'next/image';
 import { buildCloudinaryImageUrl } from '@/lib/cloudinary';
 
-export type CloudinaryImageProps = Omit<ImageProps, 'src'> & {
+export type CloudinaryImageProps = Omit<ImageProps, 'src' | 'quality'> & {
   publicId: string;
   width?: number;
   height?: number;
@@ -16,12 +16,13 @@ export default function CloudinaryImage({
   publicId,
   width,
   height,
-  quality = 'auto',
+  quality: qualityProp = 'auto',
   crop = 'fill',
   fetchFormat = 'auto',
   alt,
   ...props
 }: CloudinaryImageProps) {
+  const quality = qualityProp;
   const src = buildCloudinaryImageUrl(publicId, {
     width,
     height,
