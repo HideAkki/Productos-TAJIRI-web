@@ -28,14 +28,14 @@ Esa historia despertó en mí una idea que cambió mi manera de pensar. Yo no qu
 A partir de ese momento comenzó una etapa de estudio, observación y aprendizaje. Pasaba horas leyendo e investigando sobre las hierbas aromáticas y sus posibles aplicaciones. Poco a poco fui comprendiendo que las grandes oportunidades no siempre consisten en inventar algo nuevo, sino en observar lo que ya existe y descubrir una forma diferente de agregarle valor. Esa fue la verdadera semilla de Productos TAJIRI.
 
 Hoy, al mirar hacia atrás, sigo agradeciendo profundamente a mi amigo Fernando Navarro Ferro. Aquel regalo, hecho con la sencillez de una amistad, fue la chispa que despertó una idea que terminaría convirtiéndose en el proyecto más importante de mi vida.`,
-      image: '',
+      image: '/2009.jpg',
       caption: 'Origen y curiosidad',
     },
     {
       year: '2014',
       title: 'Las primeras victorias de Productos TAJIRI',
       excerpt: 'En 2014 la marca comenzó a organizarse de forma profesional, construyendo identidad, diseño y presencia comercial.',
-      description: `En 2014, Productos TAJIRI comenzó a tomar forma como una marca organizada y profesional. No se trataba solamente de tener un producto; también era necesario construir una identidad, una imagen, una presentación comercial y una presencia que permitiera mostrarle al mercado que detrás de la marca había seriedad, trabajo y visión empresarial.
+      description: `En 2014, Productos TAJIRI comenzó a tomar forma como una marca organizada y profesional. No se trataba solamente de tener una identidad, una imagen, una presentación comercial y una presencia que permitiera mostrarle al mercado que detrás de la marca había seriedad, trabajo y visión empresarial.
 
 La empresa BANTOO Diseño participó en la construcción de la primera identidad gráfica de Productos TAJIRI. Bajo la dirección de proyectos de Laura Juliana Rozo y con el trabajo de diseño de Julio Iván Rodríguez, nació el primer logotipo oficial de la empresa, acompañado del eslogan: “¡Mmm... qué bien me sabe!”. Ese fue uno de los primeros pasos para transformar una idea familiar en una marca con identidad propia.
 
@@ -44,7 +44,7 @@ Ese mismo año, BANTOO Diseño también desarrolló la primera página web de Pr
 En esa etapa también se trabajó en la presentación comercial del producto. Empresas como Bolten Ltda., con el acompañamiento de Óscar Duque, aportaron en el desarrollo del sistema de empaque y termoencogido que permitió presentar los productos de una forma más profesional. También se realizaron consultas técnicas con Casa de la Licuadora Industrial, buscando equipos y soluciones que ayudaran a fortalecer la capacidad de producción.
 
 Cada uno de esos pasos fue una victoria. Registrar una marca, construir una imagen, desarrollar etiquetas, buscar proveedores, diseñar empaques y salir al mercado son logros que hacen parte de la memoria de Productos TAJIRI. Aunque esa primera etapa dejó grandes aprendizajes, también dejó algo muy valioso: la certeza de que una idea puede convertirse en empresa cuando se trabaja con disciplina, visión y el apoyo de personas que creen en el proyecto.`,
-      image: '',
+      image: '/2014.JPG',
       caption: 'Primeras victorias',
     },
     {
@@ -202,9 +202,12 @@ Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría
                 Me considero trabajador, creativo, perseverante, práctico, exigente, soñador y visionario. Disfruto caminar, leer, investigar y compartir con los míos. Me duele que los alimentos se desperdicien, por eso creo en la economía circular. Mi mayor pasión es imaginar y desarrollar productos originales desde cero, dejando un legado para mi familia.
               </p>
             </div>
-            <div className="overflow-hidden rounded-[2rem] border border-[#f3d48a]/25 bg-gradient-to-br from-[#f3d48a]/20 via-[#8f1111]/10 to-[#4a2b22]/5 p-8 text-white flex flex-col justify-end">
-              <p className="text-sm uppercase tracking-[0.3em] text-white/80">Imagen provisional</p>
-              <p className="mt-4 text-3xl font-bold">Isnel Useda Díaz</p>
+            <div className="overflow-hidden rounded-[2rem] border border-[#f3d48a]/25 bg-[#f3d48a]/5">
+              <img
+                src="/Isnel Useda.jpg"
+                alt="Isnel Useda Díaz"
+                className="h-full w-full max-h-[560px] object-cover"
+              />
             </div>
           </motion.div>
         </motion.div>
