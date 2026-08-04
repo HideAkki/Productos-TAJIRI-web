@@ -6,13 +6,13 @@ export const dynamic = 'force-dynamic';
 
 const COOKIE_NAME = 'admin-auth';
 
-const validateAuthRequest = () => {
-  const cookieStore = cookies();
+const validateAuthRequest = async () => {
+  const cookieStore = await cookies();
   return cookieStore.get(COOKIE_NAME)?.value === '1';
 };
 
 export async function GET() {
-  if (!validateAuthRequest()) {
+  if (!(await validateAuthRequest())) {
     return NextResponse.json({ error: 'No autorizado.' }, { status: 401 });
   }
 
