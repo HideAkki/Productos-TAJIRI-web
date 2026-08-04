@@ -120,7 +120,7 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
 
-                <div className="absolute top-4 right-4 z-30 flex items-center gap-2">
+                <div className="absolute top-4 right-16 z-30 flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setHideInfo((current) => !current)}
