@@ -34,7 +34,7 @@ export default async function GalleryPage() {
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <p className="text-sm uppercase tracking-[0.35em] text-[#4a2b22]/80">Galería</p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-[#4a2b22] sm:text-5xl">
-            Historias en imágenes de Tajiri
+            Historias Tajiri en imágenes
           </h1>
           <p className="mt-6 text-lg leading-8 text-[#4a2b22]/80">
             Toca un elemento para verlo en tamaño completo y mostrar los detalles del título, año y descripción. También se admiten videos si la URL apunta a un video.
