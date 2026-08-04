@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Eye, EyeOff } from 'lucide-react';
 
 type GalleryItem = {
   id: string;
@@ -54,21 +55,23 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
               }}
               className="group overflow-hidden rounded-[2rem] border border-[#f3d48a]/10 bg-[#f6eddf] p-0 shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition hover:shadow-[0_28px_50px_rgba(0,0,0,0.14)]"
             >
-              {isVideo ? (
-                <video
-                  src={item.image_url}
-                  muted
-                  loop
-                  playsInline
-                  className="h-[320px] w-full object-cover transition duration-300 group-hover:scale-105"
-                />
-              ) : (
-                <img
-                  src={item.image_url}
-                  alt={item.title}
-                  className="h-[320px] w-full object-cover transition duration-300 group-hover:scale-105"
-                />
-              )}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5efe7]">
+                {isVideo ? (
+                  <video
+                    src={item.image_url}
+                    muted
+                    loop
+                    playsInline
+                    className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <img
+                    src={item.image_url}
+                    alt={item.title}
+                    className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
+                  />
+                )}
+              </div>
             </button>
           );
         })}
@@ -117,30 +120,33 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
 
-                <div className="absolute bottom-5 left-5 right-5 rounded-[2rem] border border-white/10 bg-white/10 p-5 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    {!hideInfo ? (
+                <div className="absolute top-4 right-4 z-30 flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setHideInfo((current) => !current)}
+                    className="inline-flex items-center justify-center rounded-full border border-white/20 bg-black/50 p-3 text-white transition hover:bg-black/70"
+                    aria-label={hideInfo ? 'Mostrar información' : 'Ocultar información'}
+                  >
+                    {hideInfo ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+                  </button>
+                </div>
+
+                {!hideInfo && (
+                  <div className="absolute bottom-5 left-5 right-5 rounded-[2rem] border border-white/10 bg-white/10 p-5 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                       <div>
                         <p className="text-xs uppercase tracking-[0.35em] text-white/70">{formattedDate}</p>
                         <h2 className="mt-2 text-2xl font-semibold text-white">{selectedItem.title}</h2>
                       </div>
+                    </div>
+
+                    {selectedItem.description ? (
+                      <p className="mt-4 text-sm leading-7 text-white/80">
+                        {selectedItem.description}
+                      </p>
                     ) : null}
-
-                    <button
-                      type="button"
-                      onClick={() => setHideInfo((current) => !current)}
-                      className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
-                    >
-                      {hideInfo ? 'Mostrar información' : 'Ocultar información'}
-                    </button>
                   </div>
-
-                  {!hideInfo && selectedItem.description ? (
-                    <p className="mt-4 text-sm leading-7 text-white/80">
-                      {selectedItem.description}
-                    </p>
-                  ) : null}
-                </div>
+                )}
               </div>
             </motion.div>
           </motion.div>
