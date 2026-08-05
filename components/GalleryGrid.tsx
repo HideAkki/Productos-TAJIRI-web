@@ -8,7 +8,7 @@ type GalleryItem = {
   id: string;
   title: string;
   description: string | null;
-  image_url: string;
+  image_url: string | null;
   date: string;
 };
 
@@ -16,7 +16,8 @@ type GalleryGridProps = {
   items: GalleryItem[];
 };
 
-const isVideoUrl = (url: string) => {
+const isVideoUrl = (url?: string | null) => {
+  if (!url) return false;
   const normalized = url.split('?')[0].split('#')[0].toLowerCase();
   return [
     '.mp4',
@@ -56,20 +57,26 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
               className="group overflow-hidden rounded-[2rem] border border-[#f3d48a]/10 bg-[#f6eddf] p-0 shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition hover:shadow-[0_28px_50px_rgba(0,0,0,0.14)]"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5efe7]">
-                {isVideo ? (
-                  <video
-                    src={item.image_url}
-                    muted
-                    loop
-                    playsInline
-                    className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
-                  />
+                {item.image_url ? (
+                  isVideo ? (
+                    <video
+                      src={item.image_url}
+                      muted
+                      loop
+                      playsInline
+                      className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <img
+                      src={item.image_url}
+                      alt={item.title}
+                      className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
+                    />
+                  )
                 ) : (
-                  <img
-                    src={item.image_url}
-                    alt={item.title}
-                    className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
-                  />
+                  <div className="flex h-full w-full items-center justify-center text-sm uppercase tracking-[0.35em] text-[#4a2b22]/60">
+                    Imagen no disponible
+                  </div>
                 )}
               </div>
             </button>
@@ -103,19 +110,25 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
               </button>
 
               <div className="relative aspect-[16/10] bg-black">
-                {isVideoUrl(selectedItem.image_url) ? (
-                  <video
-                    src={selectedItem.image_url}
-                    controls
-                    controlsList="nodownload"
-                    className="h-full w-full object-contain"
-                  />
+                {selectedItem.image_url ? (
+                  isVideoUrl(selectedItem.image_url) ? (
+                    <video
+                      src={selectedItem.image_url}
+                      controls
+                      controlsList="nodownload"
+                      className="h-full w-full object-contain"
+                    />
+                  ) : (
+                    <img
+                      src={selectedItem.image_url}
+                      alt={selectedItem.title}
+                      className="h-full w-full object-contain"
+                    />
+                  )
                 ) : (
-                  <img
-                    src={selectedItem.image_url}
-                    alt={selectedItem.title}
-                    className="h-full w-full object-contain"
-                  />
+                  <div className="flex h-full w-full items-center justify-center text-sm uppercase tracking-[0.35em] text-white/80">
+                    Imagen no disponible
+                  </div>
                 )}
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
