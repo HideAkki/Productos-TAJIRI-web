@@ -177,7 +177,6 @@ Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría
           <SectionTitle
             eyebrow="Fundador"
             title="Isnel Useda Díaz"
-            description="Biografía provisional mientras definimos el contenido definitivo del fundador de Productos Tajiri."
           />
           <motion.div
             variants={fadeUp}

@@ -57,13 +57,10 @@ export default function ProductShowcase() {
             className="group overflow-hidden rounded-[2rem] border border-[#4a2b22]/10 bg-white/95 p-4 shadow-[0_30px_80px_-55px_rgba(74,43,34,0.12)] transition hover:-translate-y-1 hover:border-[#e4b45f]/30 hover:bg-[#fff8f0] sm:p-6"
           >
             <div className={`aspect-[4/3] rounded-[2rem] bg-gradient-to-br ${product.color} p-4 shadow-inner shadow-[#8f1111]/10 sm:p-6`}>
-              <div className="flex h-full items-end justify-between rounded-[1.75rem] bg-black/10 p-4 text-white">
+              <div className="flex h-full items-end justify-start rounded-[1.75rem] bg-black/10 p-4 text-white">
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.35em]">Seleccionado</p>
                   <p className="text-2xl font-semibold">{product.title}</p>
-                </div>
-                <div className="rounded-3xl bg-white/10 p-3">
-                  <span className="text-lg">🧀</span>
                 </div>
               </div>
             </div>

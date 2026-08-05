@@ -37,7 +37,7 @@ export default async function GalleryPage() {
             Historias Tajiri en imágenes
           </h1>
           <p className="mt-6 text-lg leading-8 text-[#4a2b22]/80">
-            Toca un elemento para verlo en tamaño completo y mostrar los detalles del título, año y descripción. También se admiten videos si la URL apunta a un video.
+            Conoce las historias que nos inspiran y los momentos que nos motivan a seguir adelante. Nuestra galería es un reflejo de la pasión y dedicación que ponemos en cada producto, capturando la esencia de lo que significa ser parte de la familia Tajiri.
           </p>
         </div>
 
