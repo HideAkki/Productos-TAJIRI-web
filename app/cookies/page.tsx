@@ -1,8 +1,8 @@
 import CookiePolicyContent from '@/components/CookiePolicyContent';
 
 export const metadata = {
-  title: 'Política de Cookies | Productos Tajiri',
-  description: 'Política de cookies para Productos Tajiri y consentimiento de uso.',
+  title: 'Política de Cookies | Productos TAJIRI',
+  description: 'Política de cookies para Productos TAJIRI y consentimiento de uso.',
 };
 
 export default function CookiePolicyPage() {

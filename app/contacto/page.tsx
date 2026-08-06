@@ -29,7 +29,7 @@ export default function ContactoPage() {
       return;
     }
 
-    const subject = encodeURIComponent('Contacto desde Productos Tajiri');
+    const subject = encodeURIComponent('Contacto desde Productos TAJIRI');
     const body = encodeURIComponent(`Nombre: ${name}\nCorreo: ${email}\n\n${message}`);
     window.location.href = `mailto:isusedia@gmail.com?subject=${subject}&body=${body}`;
   };
@@ -40,7 +40,7 @@ export default function ContactoPage() {
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <SectionTitle
             eyebrow="Contacto"
-            title="Escríbenos y descubre cómo llevar Tajiri a tu mesa"
+            title="Escríbenos y descubre cómo llevar TAJIRI a tu mesa"
             description="Si tienes preguntas, pedidos especiales o quieres conocer nuestros productos, estamos listos para ayudarte."
           />
           <div className="mt-10 rounded-[2rem] border border-[#4a2b22]/10 bg-white/95 p-8 shadow-[0_40px_90px_-65px_rgba(74,43,34,0.12)]">

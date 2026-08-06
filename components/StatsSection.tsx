@@ -6,7 +6,7 @@ import { fadeUp, staggerContainer, scaleIn } from '@/lib/motion';
 const stats = [
   { label: 'Productos Artesanales', value: 'Artesanales, tradicionales e innovadores' },
   { label: 'Leche de Búfala', value: 'Origen local y natural' },
-  { label: 'Ingredientes Naturales', value: 'Seleccion de la maxima calidad' },
+  { label: 'Ingredientes Naturales', value: 'Selección de la máxima calidad' },
   { label: 'Innovación Constante', value: 'Nuevos lanzamientos pronto' },
 ];
 

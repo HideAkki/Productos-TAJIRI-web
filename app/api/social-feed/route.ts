@@ -108,7 +108,7 @@ const fetchInstagramFeed = async () => {
         id: `insta-${item.id}`,
         platform: 'Instagram',
         author: username ? `@${username}` : '@tajiri.oficial',
-        text: item.caption || 'Nueva publicación en Instagram de Tajiri.',
+        text: item.caption || 'Nueva publicación en Instagram de TAJIRI.',
         date: published ? formatDate(published) : 'Recientemente',
         link: item.permalink || 'https://instagram.com/tajiri.oficial',
         image: imageUrl || null,

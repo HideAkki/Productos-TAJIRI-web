@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Galería',
   description:
-    'Historias Tajiri en imágenes — momentos, eventos y relatos capturados en nuestra galería.',
+    'Historias TAJIRI en imágenes — momentos, eventos y relatos capturados en nuestra galería.',
 };
 
 type GalleryItem = {
@@ -41,10 +41,10 @@ export default async function GalleryPage() {
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <p className="text-sm uppercase tracking-[0.35em] text-[#4a2b22]/80">Galería</p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-[#4a2b22] sm:text-5xl">
-            Historias Tajiri en imágenes
+            Historias TAJIRI en imágenes
           </h1>
           <p className="mt-6 text-lg leading-8 text-[#4a2b22]/80">
-            Conoce las historias que nos inspiran y los momentos que nos motivan a seguir adelante. Nuestra galería es un reflejo de la pasión y dedicación que ponemos en cada producto, capturando la esencia de lo que significa ser parte de la familia Tajiri.
+            Conoce las historias que nos inspiran y los momentos que nos motivan a seguir adelante. Nuestra galería es un reflejo de la pasión y dedicación que ponemos en cada producto, capturando la esencia de lo que significa ser parte de la familia TAJIRI.
           </p>
         </div>
 

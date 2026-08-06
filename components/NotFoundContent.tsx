@@ -82,7 +82,7 @@ export default function NotFoundContent() {
             src="/bufalo.png"
             width={260}
             height={160}
-            alt="Búfalo Tajiri"
+            alt="Búfalo TAJIRI"
             className="h-auto w-auto rounded-[2rem] object-cover shadow-[0_20px_40px_rgba(46,125,50,0.12)]"
           />
         </motion.div>

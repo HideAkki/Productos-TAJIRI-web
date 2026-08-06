@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.1fr_0.9fr] lg:gap-12">
         <div className="space-y-6">
           <div className="inline-flex items-center gap-3">
-            <Image src="/logo-tajiri.png" alt="Logo Tajiri" width={56} height={56} className="object-contain" />
+            <Image src="/logo-tajiri.png" alt="Logo TAJIRI" width={56} height={56} className="object-contain" />
           </div>
           <p className="max-w-xl text-sm leading-7 text-[#4a2b22]/80">
             Productos TAJIRI, .
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mt-10 border-t border-white/10 pt-6 text-center text-sm text-slate-500 sm:mt-12">
-        © {new Date().getFullYear()} Productos Tajiri. Todos los derechos reservados.
+        © {new Date().getFullYear()} Productos TAJIRI. Todos los derechos reservados.
       </div>
     </footer>
   );

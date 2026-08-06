@@ -15,18 +15,18 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
-  title: {
-    default: 'Productos Tajiri',
-    template: '%s | Productos Tajiri',
+    title: {
+    default: 'Productos TAJIRI',
+    template: '%s | Productos TAJIRI',
   },
   description:
-    'Productos Tajiri es una marca artesanal premium de leche de búfala con suero costeño, yogur griego, yogur bebible y snacks hechos con dedicación.',
+    'Productos TAJIRI es una marca artesanal premium de leche de búfala con suero costeño, yogur griego, yogur bebible y snacks hechos con dedicación.',
   openGraph: {
-    title: 'Productos Tajiri',
+    title: 'Productos TAJIRI',
     description:
-      'Productos Tajiri es una marca artesanal premium de leche de búfala con suero costeño, yogur griego y snacks hechos con dedicación.',
+      'Productos TAJIRI es una marca artesanal premium de leche de búfala con suero costeño, yogur griego y snacks hechos con dedicación.',
     url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
-    siteName: 'Productos Tajiri',
+    siteName: 'Productos TAJIRI',
     type: 'website',
     images: ['/OG Image.svg'],
   },

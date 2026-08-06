@@ -41,7 +41,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-8 sm:py-4">
         <Link href="/" className="group inline-flex items-center gap-3">
-          <Image src="/logo-tajiri.png" alt="Logo Tajiri" width={72} height={72} className="h-12 w-12 object-contain sm:h-16 sm:w-16" />
+          <Image src="/logo-tajiri.png" alt="Logo TAJIRI" width={72} height={72} className="h-12 w-12 object-contain sm:h-16 sm:w-16" />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

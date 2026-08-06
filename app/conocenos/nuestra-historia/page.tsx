@@ -84,7 +84,7 @@ Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría
     },
     {
       title: 'Acontecimientos importantes',
-      description: 'Momentos clave de crecimiento, reconocimiento y renovación que han marcado la trayectoria de Tajiri.',
+      description: 'Momentos clave de crecimiento, reconocimiento y renovación que han marcado la trayectoria de TAJIRI.',
     },
   ];
 
@@ -146,7 +146,7 @@ Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría
           <div className="pointer-events-none absolute left-10 top-12 hidden h-[calc(100%-4rem)] w-px bg-[#e4b45f]/15 md:block" />
 
           <motion.div variants={fadeUp} className="mb-12 w-full max-w-3xl text-left">
-            <p className="text-sm uppercase tracking-[0.35em] text-[#4a2b22]/80">Linea de tiempo</p>
+            <p className="text-sm uppercase tracking-[0.35em] text-[#4a2b22]/80">Línea de tiempo</p>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight text-[#4a2b22] sm:text-5xl">De donde venimos y hacia donde vamos</h2>
           </motion.div>
 

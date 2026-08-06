@@ -9,7 +9,7 @@ import CTASection from '@/components/CTASection';
 export const metadata = {
   title: 'Inicio',
   description:
-    'Bienvenido a Productos Tajiri — conoce nuestros productos de leche de búfala, yogures y snacks artesanales.',
+    'Bienvenido a Productos TAJIRI — conoce nuestros productos de leche de búfala, yogures y snacks artesanales.',
 };
 
 export default function Home() {

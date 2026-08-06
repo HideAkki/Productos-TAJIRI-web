@@ -83,7 +83,7 @@ const products: Product[] = [
       'Crujiente y sabroso, el Su-Kukayo es una opción tradicional para compartir o disfrutar como snack. Su preparación artesanal garantiza textura y sabor auténtico.',
     size: '250 g',
     imageLabel: 'Vaso Gold de plástico',
-    features: ['Croquante', 'Hecho a mano', 'Textura noble', 'Sabor reconfortante'],
+    features: ['Crujiente', 'Hecho a mano', 'Textura noble', 'Sabor reconfortante'],
     images: [
       { src: '', alt: 'Paquete de Su-Kukayo abierto', label: 'Paquete abierto' },
       { src: '', alt: 'Bocados crujientes en plato', label: 'Bocados crujientes' },

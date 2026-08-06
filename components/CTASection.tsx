@@ -17,7 +17,7 @@ export default function CTASection() {
         <div>
           <p className="text-sm uppercase tracking-[0.35em] text-[#4a2b22]/90">¿Listo para conocer nuestros productos?</p>
           <h2 className="mt-4 text-2xl font-semibold tracking-tight text-[#4a2b22] sm:text-3xl lg:text-4xl">
-            Descubre la leche de búfala con el sello artesanal de Tajiri.
+            Descubre la leche de búfala con el sello artesanal de TAJIRI.
           </h2>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

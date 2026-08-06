@@ -12,7 +12,7 @@ const products = [
   },
   {
     title: 'Yogur Griego',
-    description: 'Crema perfecta y cuerpo firme, para un disfrute saludable y gourmand.',
+    description: 'Crema perfecta y cuerpo firme, para un disfrute saludable y apetitoso.',
     color: 'from-[#4a2b22] to-[#8f1111]',
   },
   {

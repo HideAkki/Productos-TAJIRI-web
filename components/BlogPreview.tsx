@@ -23,7 +23,7 @@ const fallbackPreviews = [
     icon: Newspaper,
   },
   {
-    title: 'Historias del campo y la familia Tajiri',
+    title: 'Historias del campo y la familia TAJIRI',
     label: 'Instagram',
     icon: Instagram,
   },
@@ -33,7 +33,7 @@ const fallbackPreviews = [
     icon: Newspaper,
   },
   {
-    title: 'Momentos de sabor con estilo del sur',
+    title: 'Sabores del sur y la tradición de TAJIRI',
     label: 'TikTok',
     icon: Newspaper,
   },
@@ -70,7 +70,7 @@ export default function BlogPreview() {
     <section className="mx-auto mb-16 max-w-7xl px-4 sm:mb-24 sm:px-8">
       <SectionTitle
         eyebrow="Actualidad"
-        title="Lo Último de Tajiri"
+        title="Lo Último de TAJIRI"
         description="Mantente al tanto de las últimas novedades e historias de nuestra marca."
       />
 
@@ -130,7 +130,7 @@ export default function BlogPreview() {
                     <div className="flex items-center justify-between gap-3">
                       <div>
                         <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[#4a2b22]/80">{post.platform}</p>
-                        <p className="mt-3 text-lg font-semibold text-[#4a2b22] line-clamp-2">{post.text || 'Nueva publicación de Tajiri'}</p>
+                        <p className="mt-3 text-lg font-semibold text-[#4a2b22] line-clamp-2">{post.text || 'Nueva publicación de TAJIRI'}</p>
                       </div>
                     </div>
                     <div className="mt-4 flex items-center justify-between gap-4 text-sm text-[#4a2b22]/60">
