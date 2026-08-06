@@ -34,7 +34,7 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
         >
           <motion.div
             variants={modalVariants}
-            className="relative mx-auto w-full max-w-[min(95vw,64rem)] max-h-[calc(100vh-3.5rem)] overflow-hidden rounded-[2rem] border border-white/20 bg-white/95 shadow-[0_40px_100px_rgba(0,0,0,0.22)]"
+            className="relative mx-auto flex w-full max-w-[min(95vw,64rem)] max-h-[calc(100vh-3.5rem)] flex-col overflow-hidden rounded-[2rem] border border-white/20 bg-white/95 shadow-[0_40px_100px_rgba(0,0,0,0.22)]"
             onClick={(event) => event.stopPropagation()}
             role="dialog"
             aria-modal="true"
@@ -61,7 +61,7 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
               )}
             </div>
 
-            <div className="space-y-8 p-6 sm:p-8 lg:p-10">
+            <div className="flex-1 space-y-8 overflow-y-auto p-6 sm:p-8 lg:p-10">
               <div className="space-y-4">
                 <p className="text-sm uppercase tracking-[0.35em] text-[#4a2b22]/70">{item.year}</p>
                 <h2 id="history-modal-title" className="text-3xl font-semibold tracking-tight text-[#4a2b22] sm:text-4xl">
@@ -70,7 +70,7 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
                 <p className="max-w-3xl text-base leading-8 text-[#4a2b22]/80">{item.excerpt}</p>
               </div>
 
-              <div className="space-y-6 max-h-[38vh] overflow-y-auto pr-3 text-[#4a2b22]/80">
+              <div className="space-y-6 overflow-y-auto pr-1 text-[#4a2b22]/80 sm:pr-3">
                 {item.description.split('\n\n').map((paragraph, index) => (
                   <p key={index} className="text-base leading-8">{paragraph}</p>
                 ))}
