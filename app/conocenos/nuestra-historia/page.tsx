@@ -185,7 +185,7 @@ Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría
             <div>
               <p className="text-lg font-semibold uppercase tracking-[0.3em] text-[#8f1111]/80">Sobre Isnel</p>
               <p className="mt-6 text-lg leading-8 text-[#4a2b22]/80">
-                Nací en Barrancabermeja dentro de una familia trabajadora y emprendedora. Desde niño ayudaba a mi madre a vender sus dulces de arroz y cocadas, y participaba en la crianza de pollos y cerdos. Mi padre también trabajaba de manera independiente, distribuyendo cerveza en su propio camión. De ellos aprendí que el trabajo, la iniciativa y la constancia eran parte natural de la vida.
+                Nací en Barrancabermeja dentro de una familia trabajadora y emprendedora. Desde niño ayudaba a mi madre a vender sus dulces de arroz y cocadas, y participaba en la crianza de pollos y cerdos; además, vendía limones, chance, pan y criaba chivos. Mi padre también trabajaba de manera independiente, distribuyendo cerveza en su propio camión. De ellos aprendí que el trabajo, la iniciativa y la constancia eran parte natural de la vida.
               </p>
               <p className="mt-4 text-lg leading-8 text-[#4a2b22]/80">
                 Me casé a los 17 años y llevo 48 años compartiendo mi vida con mi esposa. Soy padre de tres hijos (Zuley, Nini y Alberto), y Zuley es la creadora de los videos para las redes sociales de TAJIRI. Soy abuelo de tres nietos (Sarah, Héctor y Álvaro); Sarah es diseñadora gráfica y responsable de las etiquetas de nuestros productos, y Héctor es ingeniero de sistemas y encargado del desarrollo de la página web y del software de suscripciones.
