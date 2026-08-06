@@ -271,7 +271,7 @@ export default function ProductosPage() {
                 </div>
 
                 <div className="flex min-h-0 flex-col justify-between overflow-y-auto bg-white p-6 sm:p-8 lg:p-10">
-                  <div className="space-y-8">
+                  <div className="space-y-8 overflow-y-auto pr-1 sm:pr-2">
                     <div className="space-y-4">
                       <p className="text-xs uppercase tracking-[0.4em] text-[#4a2b22]/60">Producto exclusivo</p>
                       <div className="space-y-2">
