@@ -193,7 +193,7 @@ export default function ProductosPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-8"
+            className="fixed inset-0 z-50 overflow-y-auto bg-black/70 px-4 py-4 sm:py-8"
             onClick={() => setSelectedProduct(null)}
           >
             <motion.div
@@ -201,7 +201,7 @@ export default function ProductosPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="relative mx-auto max-h-[90vh] w-full max-w-[min(90vw,1700px)] overflow-hidden rounded-[2rem] bg-white/95 shadow-[0_60px_140px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+              className="relative mx-auto my-2 w-full max-w-[min(90vw,1700px)] max-h-[calc(100dvh-1rem)] overflow-y-auto rounded-[2rem] bg-white/95 shadow-[0_60px_140px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:my-4 sm:max-h-[90vh]"
               onClick={(event) => event.stopPropagation()}
             >
               <button
@@ -213,7 +213,7 @@ export default function ProductosPage() {
                 ✕
               </button>
 
-              <div className="grid h-full min-h-0 grid-cols-1 gap-6 overflow-hidden lg:grid-cols-[1.55fr_1fr]">
+              <div className="grid min-h-0 grid-cols-1 gap-6 lg:grid-cols-[1.55fr_1fr]">
                 <div className="relative flex min-h-0 flex-col bg-[#111111] p-6 sm:p-8 lg:p-10">
                   <motion.div
                     key={currentSlide}
