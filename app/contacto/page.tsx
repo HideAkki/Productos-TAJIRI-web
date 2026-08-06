@@ -3,8 +3,37 @@
 import SectionTitle from '@/components/SectionTitle';
 import { motion } from 'framer-motion';
 import { fadeUp } from '@/lib/motion';
+import { useState, type FormEvent } from 'react';
 
 export default function ContactoPage() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+
+  const validateEmail = (value: string) => {
+    return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError('');
+
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setError('Por favor completa todos los campos antes de enviar.');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setError('Por favor ingresa un correo válido.');
+      return;
+    }
+
+    const subject = encodeURIComponent('Contacto desde Productos Tajiri');
+    const body = encodeURIComponent(`Nombre: ${name}\nCorreo: ${email}\n\n${message}`);
+    window.location.href = `mailto:isusedia@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <main className="relative overflow-hidden px-6 py-16 sm:px-8">
       <div className="mx-auto max-w-6xl">
@@ -24,7 +53,7 @@ export default function ContactoPage() {
                 <div className="space-y-4 text-sm text-slate-300">
                   <div>
                     <p className="font-semibold text-white">Correo</p>
-                    <p>productostajiri@gmail.com</p>
+                    <p>isusedia@gmail.com</p>
                   </div>
                   <div>
                     <p className="font-semibold text-white">Teléfono</p>
@@ -36,17 +65,42 @@ export default function ContactoPage() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-4 rounded-[1.75rem] bg-[#fff8f0] p-6 shadow-[0_20px_60px_-30px_rgba(74,43,34,0.08)]">
+              <form onSubmit={handleSubmit} className="space-y-4 rounded-[1.75rem] bg-[#fff8f0] p-6 shadow-[0_20px_60px_-30px_rgba(74,43,34,0.08)]">
                 <label className="block text-sm font-medium text-[#4a2b22]">Nombre</label>
-                <input className="w-full rounded-3xl border border-[#4a2b22]/10 bg-white px-4 py-3 text-sm text-[#4a2b22] outline-none transition focus:border-[#e4b45f]/70" placeholder="Tu nombre" />
+                <input
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  className="w-full rounded-3xl border border-[#4a2b22]/10 bg-white px-4 py-3 text-sm text-[#4a2b22] outline-none transition focus:border-[#e4b45f]/70"
+                  placeholder="Tu nombre"
+                />
                 <label className="block text-sm font-medium text-[#4a2b22]">Correo</label>
-                <input className="w-full rounded-3xl border border-[#4a2b22]/10 bg-white px-4 py-3 text-sm text-[#4a2b22] outline-none transition focus:border-[#e4b45f]/70" placeholder="hola@ejemplo.com" />
+                <input
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  className="w-full rounded-3xl border border-[#4a2b22]/10 bg-white px-4 py-3 text-sm text-[#4a2b22] outline-none transition focus:border-[#e4b45f]/70"
+                  placeholder="hola@ejemplo.com"
+                  type="email"
+                />
                 <label className="block text-sm font-medium text-[#4a2b22]">Mensaje</label>
-                <textarea rows={5} className="w-full rounded-3xl border border-[#4a2b22]/10 bg-white px-4 py-3 text-sm text-[#4a2b22] outline-none transition focus:border-[#e4b45f]/70" placeholder="Cuéntanos qué necesitas" />
-                <button className="inline-flex w-full items-center justify-center rounded-full bg-[#8f1111] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#9f1515]">
+                <textarea
+                  value={message}
+                  onChange={(event) => setMessage(event.target.value)}
+                  rows={5}
+                  className="w-full rounded-3xl border border-[#4a2b22]/10 bg-white px-4 py-3 text-sm text-[#4a2b22] outline-none transition focus:border-[#e4b45f]/70"
+                  placeholder="Cuéntanos qué necesitas"
+                />
+                {error ? (
+                  <p className="rounded-3xl border border-[#f8d7da] bg-[#fff1f2] px-4 py-3 text-sm text-[#9f1f2c]">
+                    {error}
+                  </p>
+                ) : null}
+                <button
+                  type="submit"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-[#8f1111] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#9f1515]"
+                >
                   Enviar mensaje
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </motion.div>

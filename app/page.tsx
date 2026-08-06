@@ -6,6 +6,12 @@ import StoryPreview from '@/components/StoryPreview';
 import BlogPreview from '@/components/BlogPreview';
 import CTASection from '@/components/CTASection';
 
+export const metadata = {
+  title: 'Inicio',
+  description:
+    'Bienvenido a Productos Tajiri — conoce nuestros productos de leche de búfala, yogures y snacks artesanales.',
+};
+
 export default function Home() {
   return (
     <main className="relative overflow-hidden">

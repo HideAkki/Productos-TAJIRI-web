@@ -91,7 +91,7 @@ Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría
   return (
     <main className="min-h-screen bg-white">
       {/* Header */}
-      <section className="mx-auto max-w-[110rem] px-8 py-24 sm:px-10 lg:px-12 xl:px-14">
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 xl:px-10">
         <motion.div
           initial="hidden"
           animate="show"
@@ -135,7 +135,7 @@ Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría
       </section>
 
       {/* Timeline */}
-      <section className="mx-auto max-w-[110rem] px-8 py-24 sm:px-10 lg:px-14 xl:px-16">
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 xl:px-10">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -147,7 +147,7 @@ Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría
 
           <motion.div variants={fadeUp} className="mb-12 w-full max-w-3xl text-left">
             <p className="text-sm uppercase tracking-[0.35em] text-[#4a2b22]/80">Linea de tiempo</p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-[#4a2b22] sm:text-5xl sm:whitespace-nowrap">De donde venimos y hacia donde vamos</h2>
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-[#4a2b22] sm:text-5xl">De donde venimos y hacia donde vamos</h2>
           </motion.div>
 
           <div className="mx-auto w-full max-w-[92vw] space-y-20 md:pl-16 lg:pl-20 xl:pl-24">

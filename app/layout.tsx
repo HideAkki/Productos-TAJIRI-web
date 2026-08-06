@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import VoiceReader from '@/components/VoiceReader';
 import Footer from '@/components/Footer';
 import DevelopmentAlert from '@/components/DevelopmentAlert';
+import CookieConsent from '@/components/CookieConsent';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -13,8 +14,29 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Productos Tajiri',
-  description: 'Productos Tajiri es una marca artesanal premium de leche de búfala con suero costeño, yogur griego, yogur bebible y snacks hechos con dedicación.',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  title: {
+    default: 'Productos Tajiri',
+    template: '%s | Productos Tajiri',
+  },
+  description:
+    'Productos Tajiri es una marca artesanal premium de leche de búfala con suero costeño, yogur griego, yogur bebible y snacks hechos con dedicación.',
+  openGraph: {
+    title: 'Productos Tajiri',
+    description:
+      'Productos Tajiri es una marca artesanal premium de leche de búfala con suero costeño, yogur griego y snacks hechos con dedicación.',
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+    siteName: 'Productos Tajiri',
+    type: 'website',
+    images: ['/OG Image.svg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -26,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <DevelopmentAlert />
         {children}
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

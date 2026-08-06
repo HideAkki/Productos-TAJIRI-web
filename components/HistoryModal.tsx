@@ -34,7 +34,7 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
         >
           <motion.div
             variants={modalVariants}
-            className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/20 bg-white/95 shadow-[0_40px_100px_rgba(0,0,0,0.22)]"
+            className="relative mx-auto w-full max-w-[min(95vw,64rem)] max-h-[calc(100vh-3.5rem)] overflow-hidden rounded-[2rem] border border-white/20 bg-white/95 shadow-[0_40px_100px_rgba(0,0,0,0.22)]"
             onClick={(event) => event.stopPropagation()}
             role="dialog"
             aria-modal="true"
@@ -48,7 +48,7 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
               ✕
             </button>
 
-            <div className="relative h-96 overflow-hidden">
+            <div className="relative h-[26rem] min-h-[18rem] overflow-hidden sm:h-96">
               {item.image ? (
                 <>
                   <Image src={item.image} alt={item.title} fill className="object-cover" />

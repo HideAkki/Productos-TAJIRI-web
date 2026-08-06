@@ -39,6 +39,8 @@ export default function Footer() {
               <li><Link href="/productos" className="transition hover:text-[#8f1111]">Productos</Link></li>
               <li><Link href="/blog" className="transition hover:text-[#8f1111]">Blog</Link></li>
               <li><Link href="/contacto" className="transition hover:text-[#8f1111]">Contacto</Link></li>
+              <li><Link href="/privacidad" className="transition hover:text-[#8f1111]">Privacidad</Link></li>
+              <li><Link href="/cookies" className="transition hover:text-[#8f1111]">Cookies</Link></li>
             </ul>
           </div>
           <div className="space-y-4">
@@ -46,7 +48,7 @@ export default function Footer() {
             <div className="space-y-3 text-sm text-[#4a2b22]/80">
               <div className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0" /> <span>Calle 104 #23-21, Provenza, Bucaramanga, Colombia</span></div>
               <div className="flex items-center gap-2"><Phone className="h-4 w-4 shrink-0" /> <span>+57 313 3761781</span></div>
-              <div className="flex items-center gap-2"><Mail className="h-4 w-4 shrink-0" /> <span>productostajiri@gmail.com</span></div>
+              <div className="flex items-center gap-2"><Mail className="h-4 w-4 shrink-0" /> <span>isusedia@gmail.com</span></div>
             </div>
           </div>
         </div>

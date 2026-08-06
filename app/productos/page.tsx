@@ -201,7 +201,7 @@ export default function ProductosPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="relative mx-auto h-[90vh] w-full max-w-[1700px] overflow-hidden rounded-[2rem] bg-white/95 shadow-[0_60px_140px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+              className="relative mx-auto max-h-[90vh] w-full max-w-[min(90vw,1700px)] overflow-hidden rounded-[2rem] bg-white/95 shadow-[0_60px_140px_rgba(0,0,0,0.35)] backdrop-blur-xl"
               onClick={(event) => event.stopPropagation()}
             >
               <button
@@ -213,8 +213,8 @@ export default function ProductosPage() {
                 ✕
               </button>
 
-              <div className="grid h-full grid-cols-1 gap-6 overflow-hidden lg:grid-cols-[1.55fr_1fr]">
-                <div className="relative flex flex-col bg-[#111111] p-6 sm:p-8 lg:p-10">
+              <div className="grid h-full min-h-0 grid-cols-1 gap-6 overflow-hidden lg:grid-cols-[1.55fr_1fr]">
+                <div className="relative flex min-h-0 flex-col bg-[#111111] p-6 sm:p-8 lg:p-10">
                   <motion.div
                     key={currentSlide}
                     initial={{ opacity: 0, scale: 0.995 }}
@@ -270,7 +270,7 @@ export default function ProductosPage() {
                   </div>
                 </div>
 
-                <div className="flex flex-col justify-between overflow-hidden bg-white p-6 sm:p-8 lg:p-10">
+                <div className="flex min-h-0 flex-col justify-between overflow-y-auto bg-white p-6 sm:p-8 lg:p-10">
                   <div className="space-y-8">
                     <div className="space-y-4">
                       <p className="text-xs uppercase tracking-[0.4em] text-[#4a2b22]/60">Producto exclusivo</p>

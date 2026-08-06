@@ -31,12 +31,9 @@ Esta es una configuración inicial con el App Router de Next.js y un ejemplo de 
 
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-   - `ADMIN_PASSWORD`
    - `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`
    - `CLOUDINARY_UPLOAD_PRESET`
-   - `ADMIN_USERNAME` (opcional, por defecto `admin`)
 
-4. Accede al panel oculto en `/admin-oculto`.
+4. La galería se muestra de forma pública y solo necesita acceso de lectura a Supabase.
 
-5. Desde ahí podrás subir imágenes a Cloudinary y guardarlas en Supabase sin cargar los archivos de imagen en el proyecto.
+**Seguridad:** No incluyas credenciales ni secretos en el repositorio. Añade `.env.local` a tu archivo `.gitignore` y almacena valores sensibles en variables de entorno en tu servidor/CI. Si has subido por error secretos (API keys, contraseñas), revócalos y regenera nuevas claves inmediatamente.
