@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { createServerSupabaseClient } from '@/lib/supabase';
 import GalleryGrid from '@/components/GalleryGrid';
 
 export const dynamic = 'force-dynamic';
@@ -18,6 +18,7 @@ type GalleryItem = {
 };
 
 const getGalleryItems = async (): Promise<GalleryItem[]> => {
+  const supabase = createServerSupabaseClient();
   const { data, error } = await supabase
     .from('gallery')
     .select('id,title,description,image_url,date')
