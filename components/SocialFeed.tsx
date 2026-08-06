@@ -67,13 +67,13 @@ export default function SocialFeed() {
       ) : error ? (
         <div className="rounded-[2rem] border border-[#8f1111]/10 bg-[#fff1ef]/95 p-8 text-center text-[#8f1111]">{error}</div>
       ) : (
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {posts.map((post) => {
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+          {posts.slice(0, 5).map((post) => {
             const Icon = getPlatformIcon(post.platform);
             return (
-              <article key={post.id} className="w-full overflow-hidden rounded-[1.25rem] border border-[#4a2b22]/10 bg-white/95 shadow-sm transition hover:-translate-y-1 hover:border-[#e4b45f]/30">
-                <a href={post.link} target="_blank" rel="noreferrer" className="flex h-full min-h-[24rem] flex-col">
-                  <div className="relative aspect-[5/4] w-full overflow-hidden bg-[#f5efe7]">
+              <article key={post.id} className="w-full overflow-hidden rounded-[1.1rem] border border-[#4a2b22]/10 bg-white/95 shadow-sm transition hover:-translate-y-1 hover:border-[#e4b45f]/30">
+                <a href={post.link} target="_blank" rel="noreferrer" className="flex h-full min-h-[18rem] flex-col">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5efe7]">
                     {post.image ? (
                       <img
                         src={post.image}
@@ -90,23 +90,23 @@ export default function SocialFeed() {
                       </div>
                     )}
                   </div>
-                  <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
-                    <div className="space-y-4">
-                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                        <div className="flex items-start gap-3">
-                          <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-[#f3d48a]/15 text-[#4a2b22] ring-1 ring-[#f3d48a]/30">
+                  <div className="flex flex-1 flex-col justify-between p-3 sm:p-4">
+                    <div className="space-y-3">
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                        <div className="flex items-start gap-2">
+                          <span className="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-[#f3d48a]/15 text-[#4a2b22] ring-1 ring-[#f3d48a]/30">
                             <Icon className="h-3.5 w-3.5" />
                           </span>
                           <div>
                             <p className="text-sm font-semibold text-[#4a2b22]">{post.author}</p>
-                            <p className="text-xs uppercase tracking-[0.35em] text-[#4a2b22]/50">{post.platform}</p>
+                            <p className="text-[10px] uppercase tracking-[0.35em] text-[#4a2b22]/50">{post.platform}</p>
                           </div>
                         </div>
-                        <span className="text-xs text-[#4a2b22]/60">{post.date}</span>
+                        <span className="text-[11px] text-[#4a2b22]/60">{post.date}</span>
                       </div>
-                      <p className="text-sm leading-7 text-[#4a2b22]/80">{post.text}</p>
+                      <p className="line-clamp-3 text-sm leading-6 text-[#4a2b22]/80">{post.text}</p>
                     </div>
-                    <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-[#8f1111] transition group-hover:text-[#e4b45f]">
+                    <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-[#8f1111] transition group-hover:text-[#e4b45f]">
                       Ver en red
                       <ArrowUpRight className="h-4 w-4" />
                     </div>

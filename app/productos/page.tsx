@@ -51,7 +51,7 @@ const products: Product[] = [
       'Yogur griego artesanal con cuerpo cremoso y textura firme. Ideal para acompañar frutas, granola o recetas saladas que necesitan un frescor concentrado.',
     variants: ['16 oz', '9 oz'],
     imageLabel: 'Vaso Gold de plástico',
-    features: ['Alta proteína', 'Textura consistente', 'Ideal en bowls', 'Artesanal'],
+    features: ['Elaborado con leche de búfala', 'Textura consistente', 'Ideal en bowls', 'Artesanal'],
     images: [
       { src: '', alt: 'Tarrina de yogur griego con tapa', label: 'Tarrina elegante' },
       { src: '', alt: 'Yogur griego servido con fruta', label: 'Detalle servido' },
@@ -67,7 +67,7 @@ const products: Product[] = [
       'Fresco y práctico, este yogur bebible es perfecto para la mañana o merienda. Combina la riqueza de la leche búfala con una sensación ligera y nutritiva.',
     size: 'None',
     imageLabel: 'Vaso Gold de plástico',
-    features: ['Fresco y ligero', 'Rico en probióticos', 'Ideal para la mañana', 'Conveniente'],
+    features: ['Fresco y ligero', 'Producto fermentado', 'Ideal para la mañana', 'Conveniente'],
     images: [
       { src: '', alt: 'Botella de yogur bebible con fondo neutro', label: 'Botella de agarre fácil' },
       { src: '', alt: 'Yogur bebible servido en vaso', label: 'Inspiración para la mañana' },

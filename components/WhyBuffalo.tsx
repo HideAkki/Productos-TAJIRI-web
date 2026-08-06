@@ -7,8 +7,8 @@ import { fadeLeft, fadeRight, staggerContainer } from '@/lib/motion';
 
 const cards = [
   {
-    title: 'Mayor contenido proteico',
-    description: 'La leche de búfala brinda una textura más rica y un aporte nutritivo superior.',
+    title: 'Ingredientes seleccionados',
+    description: 'La leche de búfala aporta una base distinta para productos artesanales con una identidad propia.',
     icon: Sparkles,
   },
   {
@@ -18,12 +18,12 @@ const cards = [
   },
   {
     title: 'Producción responsable',
-    description: 'Metodología artesanal con respeto por el animal y el entorno.',
+    description: 'Cuidado artesanal y enfoque atento en cada lote, con respeto por el animal y el entorno.',
     icon: Leaf,
   },
   {
     title: 'Calidad artesanal',
-    description: 'Cada lote se elabora con atención, desde la granja hasta tu mesa.',
+    description: 'Cada lote se elabora con atención, desde la idea hasta llegar a tu mesa.',
     icon: ShieldCheck,
   },
 ];

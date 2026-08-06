@@ -9,7 +9,7 @@ import { fadeUp, fadeRight, scaleIn, staggerContainer } from '@/lib/motion';
 const heroFeatures = [
   'Ingredientes seleccionados',
   'Producción artesanal',
-  'Calidad garantizada',
+  'Elaboración cuidadosa',
 ];
 
 function MascotIllustration() {
@@ -27,7 +27,7 @@ export default function Hero() {
         <motion.div variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} className="space-y-8">
           <motion.div variants={fadeUp} className="inline-flex items-center gap-3 rounded-full bg-[#e4b45f]/12 px-4 py-2 text-sm font-semibold text-[#4a2b22] ring-1 ring-[#e4b45f]/30">
             <Sparkles className="h-4 w-4" />
-            Productos artesanales y saludables
+            Productos artesanales con ingredientes seleccionados
           </motion.div>
 
           <motion.div variants={fadeUp}>
