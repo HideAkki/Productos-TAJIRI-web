@@ -68,7 +68,7 @@ Posteriormente dediqué un tiempo a otros proyectos personales y empresariales, 
 Entonces regresé al punto donde realmente estaba mi pasión: el desarrollo de alimentos artesanales. A comienzos de 2024 retomé la producción de suero costeño, inicialmente con apenas cuatro litros semanales de leche de vaca. Poco después descubrí las extraordinarias cualidades de la leche de búfala y tomé una decisión que cambiaría nuevamente el rumbo de Productos TAJIRI.
 
 Sin saberlo, ese sería el comienzo de una nueva etapa de innovación que daría origen a los productos que hoy representan la esencia de nuestra marca.`,
-      image: '',
+      image: '/2024.png',
       caption: 'Renacimiento',
     },
   ];
