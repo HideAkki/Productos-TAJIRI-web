@@ -65,7 +65,7 @@ const products: Product[] = [
     description: 'Listo para llevar, suave y delicado con cuerpo natural.',
     details:
       'Fresco y práctico, este yogur bebible es perfecto para la mañana o merienda. Combina la riqueza de la leche búfala con una sensación ligera y nutritiva.',
-    size: 'None',
+    size: '250 ml',
     imageLabel: 'Vaso Gold de plástico',
     features: ['Fresco y ligero', 'Producto fermentado', 'Ideal para la mañana', 'Conveniente'],
     images: [
