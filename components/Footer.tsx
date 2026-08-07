@@ -19,7 +19,7 @@ export default function Footer() {
             <Image src="/logo-tajiri.png" alt="Logo TAJIRI" width={56} height={56} className="object-contain" />
           </div>
           <p className="max-w-xl text-sm leading-7 text-[#4a2b22]/80">
-            Productos TAJIRI, .
+            Productos TAJIRI® 
           </p>
           <div className="flex flex-wrap items-center gap-3 text-slate-300 sm:gap-4">
             <Link href="https://www.facebook.com/profile.php?id=61575655058662" target="_blank" rel="noreferrer" className="transition hover:text-amber-200"><Facebook className="h-5 w-5" /></Link>
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mt-10 border-t border-white/10 pt-6 text-center text-sm text-slate-500 sm:mt-12">
-        © {new Date().getFullYear()} Productos TAJIRI. Todos los derechos reservados.
+        © {new Date().getFullYear()} Productos TAJIRI®. Todos los derechos reservados.
       </div>
     </footer>
   );
