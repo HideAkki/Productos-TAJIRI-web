@@ -60,11 +60,11 @@ const products: Product[] = [
     color: 'from-[#4a2b22] to-[#8f1111]',
   },
   {
-    title: 'Yogur Bebible',
+    title: 'Yogurt Griego Bebible',
     subtitle: 'Ligereza lista para llevar',
     description: 'Listo para llevar, suave y delicado con cuerpo natural.',
     details:
-      'Fresco y práctico, este yogur bebible es perfecto para la mañana o merienda. Combina la riqueza de la leche búfala con una sensación ligera y nutritiva.',
+      'Fresco y práctico, este yogurt griego bebible es perfecto para la mañana o merienda. Combina la riqueza de la leche búfala con una sensación ligera y nutritiva.',
     size: '250 ml',
     imageLabel: 'Vaso Gold de plástico',
     features: ['Fresco y ligero', 'Producto fermentado', 'Ideal para la mañana', 'Conveniente'],

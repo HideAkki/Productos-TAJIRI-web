@@ -11,12 +11,7 @@ const products = [
     color: 'from-[#8f1111] to-[#4a2b22]',
   },
   {
-    title: 'Yogur Griego',
-    description: 'Crema perfecta y cuerpo firme, para un disfrute saludable y apetitoso.',
-    color: 'from-[#4a2b22] to-[#8f1111]',
-  },
-  {
-    title: 'Yogur Bebible',
+    title: 'Yogurt Griego Bebible',
     description: 'Listo para llevar, suave y delicado, con la riqueza de la leche de búfala.',
     color: 'from-[#e4b45f] to-[#f3d48a]',
   },
@@ -26,29 +21,14 @@ const products = [
     color: 'from-[#8f1111] to-[#e4b45f]',
   },
   {
-    title: 'Masa para Arepas',
-    description: 'Masa artesanal con harina de maíz amarillo y linaza, pensada para una opción más amable con la digestión.',
-    color: 'from-[#caa65d] to-[#7a4a20]',
-  },
-  {
-    title: 'SARA Dulce',
-    description: 'Golosina artesanal de maíz tostado y molido con azúcar y limón.',
-    color: 'from-[#d68f2a] to-[#f8d27d]',
-  },
-  {
     title: 'Chakula Premium Café',
     description: 'Bebida tipo malteada con extracto de café, fibra soluble y aceite Omega 3.',
     color: 'from-[#6b3f1d] to-[#b96a2b]',
   },
   {
-    title: 'Chakula Premium Cacao',
-    description: 'Bebida tipo malteada con extracto de cacao, fibra soluble y aceite Omega 3.',
-    color: 'from-[#4a2a1a] to-[#8a4b2d]',
-  },
-  {
-    title: 'Nala Peinate',
-    description: 'Extracto de café de origen con doble extracción para mayor intensidad.',
-    color: 'from-[#2f241d] to-[#7a4a2d]',
+    title: 'Yogurt Griego',
+    description: 'Crema perfecta y cuerpo firme, para un disfrute saludable y apetitoso.',
+    color: 'from-[#4a2b22] to-[#8f1111]',
   },
   {
     title: 'TURARI',
