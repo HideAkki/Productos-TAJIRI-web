@@ -91,6 +91,98 @@ const products: Product[] = [
     ],
     color: 'from-[#8f1111] to-[#e4b45f]',
   },
+  {
+    title: 'Masa para Arepas',
+    subtitle: 'Tradición y bienestar en cada arepa',
+    description: 'Una opción artesanal para preparar arepas con un perfil nutritivo y auténtico.',
+    details:
+      'Elaborada con harina de maíz amarillo y linaza, esta masa está pensada para quienes buscan una opción amable para la digestión sin perder el sabor tradicional.',
+    size: '1 libra',
+    imageLabel: 'Empaque de masa para arepas',
+    features: ['Harina de maíz amarillo', 'Con linaza', 'Buena para la digestión', 'Preparación sencilla'],
+    images: [
+      { src: '', alt: 'Empaque de masa para arepas', label: 'Empaque frontal' },
+      { src: '', alt: 'Arepas preparadas con la masa', label: 'Arepas listas' },
+      { src: '', alt: 'Detalle de la mezcla artesanal', label: 'Detalle artesanal' },
+    ],
+    color: 'from-[#caa65d] to-[#7a4a20]',
+  },
+  {
+    title: 'SARA Dulce',
+    subtitle: 'Maíz tostado con un toque dulce',
+    description: 'Una golosina artesanal con el sabor del maíz tostado, el azúcar y el limón.',
+    details:
+      'SARA Dulce combina maíz tostado y molido con azúcar y limón para ofrecer una golosina tradicional, crujiente y con un perfil dulce muy característico.',
+    size: '250 g',
+    imageLabel: 'Empaque de SARA Dulce',
+    features: ['Maíz tostado y molido', 'Con azúcar y limón', 'Golosina artesanal', 'Sabor dulce característico'],
+    images: [
+      { src: '', alt: 'Empaque de SARA Dulce', label: 'Empaque frontal' },
+      { src: '', alt: 'Detalle del producto en mesa', label: 'Presentación artesanal' },
+      { src: '', alt: 'Golosina SARA Dulce abierta', label: 'Detalle del producto' },
+    ],
+    color: 'from-[#d68f2a] to-[#f8d27d]',
+  },
+  {
+    title: 'Chakula Premium Café',
+    subtitle: 'Malteada de café con funcionalidad',
+    description: 'Bebida tipo malteada elaborada con extracto de café, fibra soluble y aceite Omega 3.',
+    details:
+      'Chakula Premium Café combina el sabor del extracto de café con fibra soluble y aceite Omega 3, creando una bebida funcional con identidad y perfil premium.',
+    imageLabel: 'Empaque de Chakula Premium Café',
+    features: ['Extracto de café', 'Fibra soluble', 'Aceite Omega 3', 'Bebida tipo malteada'],
+    images: [
+      { src: '', alt: 'Empaque de Chakula Premium Café', label: 'Empaque frontal' },
+      { src: '', alt: 'Bebida Chakula Premium Café', label: 'Presentación de la bebida' },
+      { src: '', alt: 'Detalle del producto', label: 'Detalle nutricional' },
+    ],
+    color: 'from-[#6b3f1d] to-[#b96a2b]',
+  },
+  {
+    title: 'Chakula Premium Cacao',
+    subtitle: 'Malteada de cacao con aporte funcional',
+    description: 'Bebida tipo malteada preparada con extracto de cacao, fibra soluble y aceite Omega 3.',
+    details:
+      'Chakula Premium Cacao reúne el sabor del cacao con fibra soluble y aceite Omega 3 para ofrecer una opción indulgente con un enfoque funcional.',
+    imageLabel: 'Empaque de Chakula Premium Cacao',
+    features: ['Extracto de cacao', 'Fibra soluble', 'Aceite Omega 3', 'Bebida tipo malteada'],
+    images: [
+      { src: '', alt: 'Empaque de Chakula Premium Cacao', label: 'Empaque frontal' },
+      { src: '', alt: 'Bebida Chakula Premium Cacao', label: 'Presentación de la bebida' },
+      { src: '', alt: 'Detalle del producto', label: 'Detalle nutricional' },
+    ],
+    color: 'from-[#4a2a1a] to-[#8a4b2d]',
+  },
+  {
+    title: 'Nala Peinate',
+    subtitle: 'Extracto de café de origen',
+    description: 'Café de origen con doble extracción para una experiencia más intensa y concentrada.',
+    details:
+      'Nala Peinate es un extracto de café de origen preparado con doble extracción, pensado para quienes valoran un café con cuerpo y perfil auténtico.',
+    imageLabel: 'Empaque de Nala Peinate',
+    features: ['Extracto de café de origen', 'Doble extracción', 'Perfil intenso', 'Café concentrado'],
+    images: [
+      { src: '', alt: 'Empaque de Nala Peinate', label: 'Empaque frontal' },
+      { src: '', alt: 'Café Nala Peinate servido', label: 'Presentación del café' },
+      { src: '', alt: 'Detalle del producto', label: 'Detalle del extracto' },
+    ],
+    color: 'from-[#2f241d] to-[#7a4a2d]',
+  },
+  {
+    title: 'TURARI',
+    subtitle: 'Aderezo líquido para carnes',
+    description: 'Preparado a partir de extracto de hierbas para aportar sabor a carnes y platos.',
+    details:
+      'TURARI es un aderezo líquido para carnes elaborado con extracto de hierbas, ideal para realzar sabores en preparaciones tradicionales y contemporáneas.',
+    imageLabel: 'Botella de TURARI',
+    features: ['Aderezo líquido', 'Para carnes', 'Extracto de hierbas', 'Sabor auténtico'],
+    images: [
+      { src: '', alt: 'Botella de TURARI', label: 'Envase frontal' },
+      { src: '', alt: 'TURARI sobre carne', label: 'Uso culinario' },
+      { src: '', alt: 'Detalle del aderezo', label: 'Detalle del producto' },
+    ],
+    color: 'from-[#2e6b3f] to-[#6e9d4f]',
+  },
 ];
 
 export default function ProductosPage() {
@@ -120,8 +212,8 @@ export default function ProductosPage() {
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <SectionTitle
             eyebrow="Catálogo"
-            title="Nuestros productos con leche de búfala"
-            description="Selección limitada de alternativas artesanales que combinan cremosidad, sabor y detalles premium en cada presentación."
+            title="Nuestros productos artesanales"
+            description="Selección de alternativas artesanales que combinan sabor, tradición y detalles premium en cada presentación."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {products.map((product) => (
