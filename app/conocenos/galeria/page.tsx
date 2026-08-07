@@ -22,8 +22,7 @@ const getGalleryItems = async (): Promise<GalleryItem[]> => {
   const { data, error } = await supabase
     .from('gallery')
     .select('id,title,description,image_url,date')
-    .order('date', { ascending: false })
-    .limit(50);
+    .order('date', { ascending: false });
 
   if (error) {
     throw new Error(error.message);

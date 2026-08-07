@@ -43,6 +43,8 @@ Ese mismo año, BANTOO Diseño también desarrolló la primera página web de Pr
 
 En esa etapa también se trabajó en la presentación comercial del producto. Empresas como Bolten Ltda., con el acompañamiento de Óscar Duque, aportaron en el desarrollo del sistema de empaque y termoencogido que permitió presentar los productos de una forma más profesional. También se realizaron consultas técnicas con Casa de la Licuadora Industrial, buscando equipos y soluciones que ayudaran a fortalecer la capacidad de producción.
 
+Además, en 2014 se obtuvo el registro INVIMA para Turari, un logro clave que reforzó la confianza en el producto y permitió avanzar con mayor seguridad en su comercialización.
+
 Cada uno de esos pasos fue una victoria. Registrar una marca, construir una imagen, desarrollar etiquetas, buscar proveedores, diseñar empaques y salir al mercado son logros que hacen parte de la memoria de Productos TAJIRI. Aunque esa primera etapa dejó grandes aprendizajes, también dejó algo muy valioso: la certeza de que una idea puede convertirse en empresa cuando se trabaja con disciplina, visión y el apoyo de personas que creen en el proyecto.`,
       image: '/2014.JPG',
       caption: 'Primeras victorias',
