@@ -19,6 +19,9 @@ type Product = {
   description: string;
   details: string;
   variants?: string[];
+  variantDetails?: Record<string, string>;
+  variantImages?: Record<string, ProductImage[]>;
+  coverImage?: string;
   size?: string;
   imageLabel: string;
   features: string[];
@@ -34,6 +37,23 @@ const products: Product[] = [
     details:
       'Nuestro suero costeño es ligero, ligeramente salado y perfecto para complementar arepas, sopas o para marinar. Disponible en dos formatos para llegar a la mesa con la dosis justa de frescura.',
     variants: ['16 oz', '9 oz'],
+    variantDetails: {
+      '16 oz': 'Formato de 16 oz con mayor rendimiento, ideal para compartir y conservar en refrigeración.',
+      '9 oz': 'Formato de 9 oz, práctico para disfrutar al momento o llevar en la nevera de la casa.',
+    },
+    variantImages: {
+      '16 oz': [
+        { src: '/Suero 16oz - 1.png', alt: 'Botella de suero costeño 16 oz sobre tela natural', label: 'Etiqueta frontal 16 oz' },
+        { src: '/Suero 16oz - 2.png', alt: 'Detalle de botella de suero costeño 16 oz', label: 'Detalle del envase 16 oz' },
+        { src: '/Suero 16oz - 3.png', alt: 'Suero costeño 16 oz servido en vaso', label: 'Servido en vaso 16 oz' },
+      ],
+      '9 oz': [
+        { src: '/Suero 9oz - 1.png', alt: 'Botella de suero costeño 9 oz sobre tela natural', label: 'Etiqueta frontal 9 oz' },
+        { src: '/Suero 9oz - 2.png', alt: 'Detalle de botella de suero costeño 9 oz', label: 'Detalle del envase 9 oz' },
+        { src: '/Suero 9oz - 3.png', alt: 'Suero costeño 9 oz servido en vaso', label: 'Servido en vaso 9 oz' },
+      ],
+    },
+    coverImage: '/Portada Suero.png',
     imageLabel: 'Vaso Gold de plástico',
     features: ['Cremoso', 'Elaborado artesanalmente', 'Leche de búfala', 'Conservación refrigerada'],
     images: [
@@ -50,6 +70,21 @@ const products: Product[] = [
     details:
       'Yogur griego artesanal con cuerpo cremoso y textura firme. Ideal para acompañar frutas, granola o recetas saladas que necesitan un frescor concentrado.',
     variants: ['16 oz', '9 oz'],
+    variantDetails: {
+      '16 oz': 'Formato de 16 oz, perfecto para bowls y desayunos con suficiente porción.',
+      '9 oz': 'Formato de 9 oz, práctico para llevar o consumir en una sola porción.',
+    },
+    variantImages: {
+      '16 oz': [
+        { src: '/Yogurt griego 16oz - 1.png', alt: 'Tarrina de yogur griego 16 oz con tapa', label: 'Tarrina elegante 16 oz' },
+        { src: '/Yogurt griego 16oz - 2.png', alt: 'Yogur griego 16 oz servido con fruta', label: 'Detalle servido 16 oz' },
+      ],
+      '9 oz': [
+        { src: '/Yogurt griego 9oz- 1.png', alt: 'Tarrina de yogur griego 9 oz con tapa', label: 'Tarrina elegante 9 oz' },
+        { src: '/Yogurt griego 9oz- 2.png', alt: 'Yogur griego 9 oz servido con fruta', label: 'Detalle servido 9 oz' },
+      ],
+    },
+    coverImage: '/Portada Yogurt Griego.png',
     imageLabel: 'Vaso Gold de plástico',
     features: ['Elaborado con leche de búfala', 'Textura consistente', 'Ideal en bowls', 'Artesanal'],
     images: [
@@ -66,7 +101,7 @@ const products: Product[] = [
     details:
       'Fresco y práctico, este yogurt griego bebible es perfecto para la mañana o merienda. Combina la riqueza de la leche búfala con una sensación ligera y nutritiva.',
     size: '250 ml',
-    imageLabel: 'Vaso Gold de plástico',
+    imageLabel: 'Botella de plástico 250 ml',
     features: ['Fresco y ligero', 'Producto fermentado', 'Ideal para la mañana', 'Conveniente'],
     images: [
       { src: '', alt: 'Botella de yogur bebible con fondo neutro', label: 'Botella de agarre fácil' },
@@ -129,7 +164,7 @@ const products: Product[] = [
     description: 'Bebida tipo malteada elaborada con extracto de café, fibra soluble y aceite Omega 3.',
     details:
       'Chakula Premium Café combina el sabor del extracto de café con fibra soluble y aceite Omega 3, creando una bebida funcional con identidad y perfil premium.',
-    imageLabel: 'Empaque de Chakula Premium Café',
+    imageLabel: 'Botella de plástico',
     features: ['Extracto de café', 'Fibra soluble', 'Aceite Omega 3', 'Bebida tipo malteada'],
     images: [
       { src: '', alt: 'Empaque de Chakula Premium Café', label: 'Empaque frontal' },
@@ -144,7 +179,7 @@ const products: Product[] = [
     description: 'Bebida tipo malteada preparada con extracto de cacao, fibra soluble y aceite Omega 3.',
     details:
       'Chakula Premium Cacao reúne el sabor del cacao con fibra soluble y aceite Omega 3 para ofrecer una opción indulgente con un enfoque funcional.',
-    imageLabel: 'Empaque de Chakula Premium Cacao',
+    imageLabel: 'Botella de plástico',
     features: ['Extracto de cacao', 'Fibra soluble', 'Aceite Omega 3', 'Bebida tipo malteada'],
     images: [
       { src: '', alt: 'Empaque de Chakula Premium Cacao', label: 'Empaque frontal' },
@@ -159,7 +194,7 @@ const products: Product[] = [
     description: 'Café de origen con doble extracción para una experiencia más intensa y concentrada.',
     details:
       'Nala Peinate es un extracto de café de origen preparado con doble extracción, pensado para quienes valoran un café con cuerpo y perfil auténtico.',
-    imageLabel: 'Empaque de Nala Peinate',
+    imageLabel: 'Botella de plástico',
     features: ['Extracto de café de origen', 'Doble extracción', 'Perfil intenso', 'Café concentrado'],
     images: [
       { src: '', alt: 'Empaque de Nala Peinate', label: 'Empaque frontal' },
@@ -174,7 +209,7 @@ const products: Product[] = [
     description: 'Preparado a partir de extracto de hierbas para aportar sabor a carnes y platos.',
     details:
       'TURARI es un aderezo líquido para carnes elaborado con extracto de hierbas, ideal para realzar sabores en preparaciones tradicionales y contemporáneas.',
-    imageLabel: 'Botella de TURARI',
+    imageLabel: 'Botella de plástico',
     features: ['Aderezo líquido', 'Para carnes', 'Extracto de hierbas', 'Sabor auténtico'],
     images: [
       { src: '', alt: 'Botella de TURARI', label: 'Envase frontal' },
@@ -190,7 +225,25 @@ export default function ProductosPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState<string | null>(null);
 
-  const slideCount = selectedProduct?.images.length ?? 0;
+  const selectedImages = selectedProduct
+    ? selectedVariant && selectedProduct.variantImages?.[selectedVariant]
+      ? selectedProduct.variantImages[selectedVariant]
+      : selectedProduct.images
+    : [];
+
+  const slideCount = selectedImages.length;
+
+  const activeProductDetails = selectedProduct
+    ? selectedProduct.variantDetails && selectedVariant
+      ? selectedProduct.variantDetails[selectedVariant] ?? selectedProduct.details
+      : selectedProduct.details
+    : '';
+
+  const handleCloseDetails = () => {
+    setSelectedProduct(null);
+    setSelectedVariant(null);
+    setCurrentSlide(0);
+  };
 
   const goPrevious = () => {
     if (!selectedProduct || slideCount === 0) return;
@@ -204,6 +257,7 @@ export default function ProductosPage() {
 
   const selectVariant = (variant: string) => {
     setSelectedVariant(variant);
+    setCurrentSlide(0);
   };
 
   return (
@@ -222,20 +276,30 @@ export default function ProductosPage() {
                 className="group overflow-hidden rounded-[2rem] border border-[#4a2b22]/10 bg-white/95 shadow-[0_30px_80px_-55px_rgba(74,43,34,0.12)] transition hover:-translate-y-1 hover:border-[#e4a2b5f]/30 hover:bg-[#fff8f0] opacity-100 transform-none"
               >
                 <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${product.color}`}>
+                  {product.coverImage ? (
+                    <Image
+                      src={product.coverImage}
+                      alt={`${product.title} portada`}
+                      fill
+                      className="absolute inset-0 object-cover opacity-90"
+                      sizes="100vw"
+                    />
+                  ) : null}
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.28),_transparent_35%)]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 h-28 rounded-t-[2rem] bg-white/10" />
-                  <div className="relative flex h-full flex-col justify-between p-6 text-white">
+                  <div className="relative flex h-full flex-col justify-between p-6 text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.85)]">
                     <div className="flex items-center justify-between gap-3">
                       <span className="rounded-full bg-white/15 px-3 py-1 text-xs uppercase tracking-[0.25em] text-white/90">Producto</span>
                       {product.size ? (
-                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-white/80">
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-white">
                           {product.size}
                         </span>
                       ) : null}
                     </div>
                     <div>
-                      <p className="text-3xl font-semibold leading-tight">{product.title}</p>
-                      <p className="mt-3 text-sm text-white/80">{product.imageLabel}</p>
+                      <p className="text-3xl font-semibold leading-tight text-white">{product.title}</p>
+                      <p className="mt-3 text-sm text-white">{product.imageLabel}</p>
                     </div>
                   </div>
                 </div>
@@ -263,6 +327,7 @@ export default function ProductosPage() {
                       type="button"
                       onClick={() => {
                         setSelectedProduct(product);
+                        setSelectedVariant(product.variants?.[0] ?? null);
                         setCurrentSlide(0);
                       }}
                       className="rounded-full bg-[#8f1111] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#9f1515]"
@@ -285,7 +350,7 @@ export default function ProductosPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 overflow-y-auto bg-black/70 px-4 py-4 sm:py-8"
-            onClick={() => setSelectedProduct(null)}
+            onClick={handleCloseDetails}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
@@ -297,7 +362,7 @@ export default function ProductosPage() {
             >
               <button
                 type="button"
-                onClick={() => setSelectedProduct(null)}
+                onClick={handleCloseDetails}
                 className="absolute right-5 top-5 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white transition hover:bg-black/60"
                 aria-label="Cerrar detalle"
               >
@@ -314,10 +379,10 @@ export default function ProductosPage() {
                     transition={{ duration: 0.32, ease: 'easeOut' }}
                     className="relative flex-1 overflow-hidden rounded-[2rem] bg-black"
                   >
-                    {selectedProduct.images[currentSlide].src ? (
+                    {selectedImages[currentSlide]?.src ? (
                       <Image
-                        src={selectedProduct.images[currentSlide].src}
-                        alt={selectedProduct.images[currentSlide].alt}
+                        src={selectedImages[currentSlide].src}
+                        alt={selectedImages[currentSlide].alt}
                         fill
                         className="h-full w-full object-contain"
                         sizes="90vw"
@@ -327,13 +392,12 @@ export default function ProductosPage() {
                     )}
                   </motion.div>
 
-                  <div className="mt-5 flex flex-col gap-3">
-                    <p className="text-xs uppercase tracking-[0.4em] text-white/50">{selectedProduct.images[currentSlide].label}</p>
+                  <div className="mt-5">
                     <p className="max-w-2xl text-sm leading-7 text-white/70">{selectedProduct.imageLabel}</p>
                   </div>
 
                   <div className="mt-6 flex gap-3 overflow-x-auto pb-2">
-                    {selectedProduct.images.map((image, index) => (
+                    {selectedImages.map((image, index) => (
                       <button
                         key={index}
                         type="button"
@@ -344,7 +408,7 @@ export default function ProductosPage() {
                             : 'border-white/15'
                         }`}
                       >
-                        {image.src ? (
+                        {image?.src ? (
                           <>
                             <Image src={image.src} alt={image.alt} fill className="object-cover" />
                             <div
@@ -378,7 +442,7 @@ export default function ProductosPage() {
                         Detalles
                         <span className="inline-block h-px flex-1 bg-[#4a2b22]/10" />
                       </div>
-                      <p className="text-sm leading-7 text-[#4a2b22]/80">{selectedProduct.details}</p>
+                      <p className="text-sm leading-7 text-[#4a2b22]/80">{activeProductDetails}</p>
                     </div>
 
                     <div className="space-y-4">

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { fadeUp, staggerContainer } from '@/lib/motion';
@@ -9,11 +10,13 @@ const products = [
     title: 'Suero Costeño',
     description: 'Fresco y auténtico, con una textura ligera y sabor tradicional.',
     color: 'from-[#8f1111] to-[#4a2b22]',
+    coverImage: '/Portada Suero.png',
   },
   {
     title: 'Yogurt Griego Bebible',
     description: 'Listo para llevar, suave y delicado, con la riqueza de la leche de búfala.',
     color: 'from-[#e4b45f] to-[#f3d48a]',
+    coverImage: '/Portada Yogurt Griego.png',
   },
   {
     title: 'Su-Kukayo',
@@ -66,8 +69,18 @@ export default function ProductShowcase() {
             variants={fadeUp}
             className="group overflow-hidden rounded-[2rem] border border-[#4a2b22]/10 bg-white/95 p-4 shadow-[0_30px_80px_-55px_rgba(74,43,34,0.12)] transition hover:-translate-y-1 hover:border-[#e4b45f]/30 hover:bg-[#fff8f0] sm:p-6"
           >
-            <div className={`aspect-[4/3] rounded-[2rem] bg-gradient-to-br ${product.color} p-4 shadow-inner shadow-[#8f1111]/10 sm:p-6`}>
-              <div className="flex h-full items-end justify-start rounded-[1.75rem] bg-black/10 p-4 text-white">
+            <div className={`relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-gradient-to-br ${product.color} p-4 shadow-inner shadow-[#8f1111]/10 sm:p-6`}>
+              {product.coverImage ? (
+                <Image
+                  src={product.coverImage}
+                  alt={`${product.title} portada`}
+                  fill
+                  className="absolute inset-0 object-cover opacity-90"
+                  sizes="100vw"
+                />
+              ) : null}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="relative flex h-full items-end justify-start rounded-[1.75rem] bg-black/10 p-4 text-white">
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.35em]">Seleccionado</p>
                   <p className="text-2xl font-semibold">{product.title}</p>
