@@ -209,7 +209,7 @@ export default function ProductosPage() {
   return (
     <main className="relative overflow-hidden px-6 py-16 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+        <div>
           <SectionTitle
             eyebrow="Catálogo"
             title="Nuestros productos artesanales"
@@ -217,10 +217,9 @@ export default function ProductosPage() {
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {products.map((product) => (
-              <motion.article
+              <article
                 key={product.title}
-                variants={fadeUp}
-                className="group overflow-hidden rounded-[2rem] border border-[#4a2b22]/10 bg-white/95 shadow-[0_30px_80px_-55px_rgba(74,43,34,0.12)] transition hover:-translate-y-1 hover:border-[#e4b45f]/30 hover:bg-[#fff8f0]"
+                className="group overflow-hidden rounded-[2rem] border border-[#4a2b22]/10 bg-white/95 shadow-[0_30px_80px_-55px_rgba(74,43,34,0.12)] transition hover:-translate-y-1 hover:border-[#e4a2b5f]/30 hover:bg-[#fff8f0] opacity-100 transform-none"
               >
                 <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${product.color}`}>
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.28),_transparent_35%)]" />
@@ -272,10 +271,10 @@ export default function ProductosPage() {
                     </button>
                   </div>
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <AnimatePresence>
