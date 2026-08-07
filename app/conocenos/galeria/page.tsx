@@ -22,7 +22,8 @@ const getGalleryItems = async (): Promise<GalleryItem[]> => {
   const { data, error } = await supabase
     .from('gallery')
     .select('id,title,description,image_url,date')
-    .order('date', { ascending: false });
+    .order('date', { ascending: false })
+    .limit(50);
 
   if (error) {
     throw new Error(error.message);
@@ -35,7 +36,10 @@ export default async function GalleryPage() {
   const items = await getGalleryItems();
 
   return (
+    
     <main className="min-h-screen bg-white">
+      <br />
+      <br />
       <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8 xl:px-10">
         <div className="mx-auto mb-12 max-w-4xl text-center">
           <p className="text-sm uppercase tracking-[0.35em] text-[#4a2b22]/80">Galería</p>
