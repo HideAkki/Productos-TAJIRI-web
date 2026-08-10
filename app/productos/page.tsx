@@ -32,10 +32,10 @@ type Product = {
 const products: Product[] = [
   {
     title: 'Suero Costeño',
-    subtitle: 'Suavidad costera en cada sorbo',
+    subtitle: 'Suavidad costera en cada cucharada',
     description: 'Textura fresca y una tradición auténtica de la costa colombiana.',
     details:
-      'Nuestro suero costeño es ligero, ligeramente salado y perfecto para complementar arepas, sopas o para marinar. Disponible en dos formatos para llegar a la mesa con la dosis justa de frescura.',
+      'Nuestro suero costeño es ligero, ligeramente salado y perfecto para complementar arepas, sopas o para marinar. Se consume con cuchara o sobre alimentos, y está disponible en dos formatos para llegar a la mesa con la dosis justa de frescura.',
     variants: ['16 oz', '9 oz'],
     variantDetails: {
       '16 oz': 'Formato de 16 oz con mayor rendimiento, ideal para compartir y conservar en refrigeración.',
@@ -68,7 +68,7 @@ const products: Product[] = [
     subtitle: 'Cuerpo cremoso, estilo sereno',
     description: 'Crema espesa y nutritiva para tus recetas o momentos especiales.',
     details:
-      'Yogur griego artesanal con cuerpo cremoso y textura firme. Ideal para acompañar frutas, granola o recetas saladas que necesitan un frescor concentrado.',
+      'Yogur griego artesanal con cuerpo cremoso y textura firme. Ideal para acompañar frutas, granola o recetas saladas que necesitan un frescor concentrado. Se consume a cuchara.',
     variants: ['16 oz', '9 oz'],
     variantDetails: {
       '16 oz': 'Formato de 16 oz, perfecto para bowls y desayunos con suficiente porción.',
@@ -99,7 +99,7 @@ const products: Product[] = [
     subtitle: 'Ligereza lista para llevar',
     description: 'Listo para llevar, suave y delicado con cuerpo natural.',
     details:
-      'Fresco y práctico, este yogurt griego bebible es perfecto para la mañana o merienda. Combina la riqueza de la leche búfala con una sensación ligera y nutritiva.',
+      'Fresco y práctico, este yogurt griego bebible es perfecto para la mañana o merienda. Combina la riqueza de la leche búfala con una sensación ligera y nutritiva. Es un producto líquido que se bebe.',
     size: '250 ml',
     imageLabel: 'Botella de plástico 250 ml',
     features: ['Fresco y ligero', 'Producto fermentado', 'Ideal para la mañana', 'Conveniente'],

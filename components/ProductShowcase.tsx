@@ -8,13 +8,13 @@ import { fadeUp, staggerContainer } from '@/lib/motion';
 const products = [
   {
     title: 'Suero Costeño',
-    description: 'Fresco y auténtico, con una textura ligera y sabor tradicional.',
+    description: 'Fresco y auténtico, con una textura ligera y sabor tradicional. Se consume con cuchara o sobre alimentos.',
     color: 'from-[#8f1111] to-[#4a2b22]',
     coverImage: '/Portada Suero.png',
   },
   {
     title: 'Yogurt Griego Bebible',
-    description: 'Listo para llevar, suave y delicado, con la riqueza de la leche de búfala.',
+    description: 'Listo para llevar, suave y delicado, con la riqueza de la leche de búfala. Es un producto líquido que se bebe.',
     color: 'from-[#e4b45f] to-[#f3d48a]',
     coverImage: '/Portada Yogurt Griego.png',
   },
@@ -30,7 +30,7 @@ const products = [
   },
   {
     title: 'Yogurt Griego',
-    description: 'Crema perfecta y cuerpo firme, para un disfrute saludable y apetitoso.',
+    description: 'Crema perfecta y cuerpo firme, para un disfrute saludable y apetitoso. Se consume a cuchara.',
     color: 'from-[#4a2b22] to-[#8f1111]',
   },
   {
