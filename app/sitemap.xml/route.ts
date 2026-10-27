@@ -1,32 +1,9 @@
-import { NextResponse } from 'next/server';
-
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
-const pages = [
-  '/',
-  '/blog',
-  '/conocenos/galeria',
-  '/conocenos/nuestra-historia',
-  '/contacto',
-  '/productos',
-  '/privacidad',
-  '/cookies',
-];
-
-export async function GET() {
-  const now = new Date().toISOString();
-
-  const urls = pages
-    .map((path) => {
-      return `  <url>\n    <loc>${baseUrl}${path}</loc>\n    <lastmod>${now}</lastmod>\n  </url>`;
-    })
-    .join('\n');
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`;
-
-  return new NextResponse(xml, {
-    headers: {
-      'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=0, s-maxage=3600',
-    },
+import { siteUrl } from '@/lib/site';
+const pages = ['/', '/blog', '/conocenos/galeria', '/conocenos/nuestra-historia', '/contacto', '/productos', '/privacidad', '/cookies'];
+export function GET() {
+  if (!siteUrl) return new Response('Sitemap no disponible', { status: 503 });
+  const urls = pages.map(path => `<url><loc>${siteUrl}${path}</loc></url>`).join('\n');
+  return new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`, {
+    headers: { 'Content-Type': 'application/xml', 'Cache-Control': 'public, max-age=3600' },
   });
 }

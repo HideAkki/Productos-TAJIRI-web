@@ -1,5 +1,6 @@
 'use client';
 
+import DialogShell from '@/components/DialogShell';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import type { TimelineItem } from '@/components/TimelineCard';
@@ -24,6 +25,7 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
   return (
     <AnimatePresence>
       {open && item ? (
+          <DialogShell onClose={onClose} label={item.title}>
         <motion.div
           initial="hidden"
           animate="show"
@@ -36,13 +38,11 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
             variants={modalVariants}
             className="relative mx-auto flex w-full max-w-[min(95vw,64rem)] max-h-[calc(100vh-3.5rem)] flex-col overflow-hidden rounded-[2rem] border border-white/20 bg-white/95 shadow-[0_40px_100px_rgba(0,0,0,0.22)]"
             onClick={(event) => event.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="history-modal-title"
           >
             <button
               type="button"
               onClick={onClose}
+              aria-label="Cerrar historia"
               className="absolute right-5 top-5 inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#4a2b22]/10 bg-white/90 text-[#4a2b22] transition hover:bg-[#4a2b22]/5 focus:outline-none focus:ring-2 focus:ring-[#e4b45f]/40"
             >
               ✕
@@ -51,7 +51,7 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
             <div className="relative h-[26rem] min-h-[18rem] overflow-hidden sm:h-96">
               {item.image ? (
                 <>
-                  <Image src={item.image} alt={item.title} fill className="object-cover" />
+                  <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 1024px, 95vw" className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#4a2b22]/85 via-transparent to-transparent" />
                 </>
               ) : (
@@ -88,6 +88,7 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
             </div>
           </motion.div>
         </motion.div>
+          </DialogShell>
       ) : null}
     </AnimatePresence>
   );

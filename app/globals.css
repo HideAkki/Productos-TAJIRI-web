@@ -44,7 +44,10 @@
   }
 }
 
-body.not-found-page > *:not(main) {
+body.not-found-page > header,
+body.not-found-page > footer,
+body.not-found-page > .voice-reader,
+body.not-found-page > .cookie-notice {
   display: none !important;
 }
 
@@ -55,5 +58,17 @@ body.not-found-page main {
 @layer components {
   .card-glass {
     @apply rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-xl;
+  }
+}
+@layer base {
+  :focus-visible { outline: 3px solid #8f1111; outline-offset: 4px; }
+  dialog :focus-visible { outline-color: #c98b23; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

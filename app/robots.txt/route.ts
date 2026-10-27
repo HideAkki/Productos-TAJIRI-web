@@ -1,16 +1,6 @@
-import { NextResponse } from 'next/server';
-
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
-
-export async function GET() {
-  const lines = [
-    'User-agent: *',
-    'Disallow: /admin-oculto',
-    '',
-    `Sitemap: ${baseUrl}/sitemap.xml`,
-  ];
-
-  return new NextResponse(lines.join('\n'), {
+import { siteUrl } from '@/lib/site';
+export function GET() {
+  return new Response(siteUrl ? `User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${siteUrl}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n', {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
   });
 }

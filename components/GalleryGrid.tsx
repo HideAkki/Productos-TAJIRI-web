@@ -1,9 +1,13 @@
+/* Las URLs de galería son públicas y pueden incluir vídeo o CDN de distintos proveedores. */
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Eye, EyeOff, Maximize2, Minimize2, X, ZoomIn, ZoomOut } from 'lucide-react';
+import DialogShell from '@/components/DialogShell';
 import GalleryMobileViewer from '@/components/GalleryMobileViewer';
+import GalleryVideoPreview from '@/components/GalleryVideoPreview';
 
 type GalleryItem = {
   id: string;
@@ -53,14 +57,14 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
     });
   }, [selectedItem]);
 
-  const openItem = (item: GalleryItem, index: number) => {
+  const openItem = useCallback((item: GalleryItem, index: number) => {
     setSelectedItem(item);
     setCurrentIndex(index);
     setHideInfo(false);
     setShowUI(true);
     setZoom(1);
     setPan({ x: 0, y: 0 });
-  };
+  }, []);
 
   const closeViewer = () => {
     setSelectedItem(null);
@@ -69,18 +73,18 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
     setPan({ x: 0, y: 0 });
   };
 
-  const goToItem = (index: number) => {
+  const goToItem = useCallback((index: number) => {
     const safeIndex = (index + items.length) % items.length;
     const nextItem = items[safeIndex];
     if (nextItem) {
       openItem(nextItem, safeIndex);
     }
-  };
+  }, [items, openItem]);
 
-  const changeZoom = (delta: number) => {
+  const changeZoom = useCallback((delta: number) => {
     if (isVideo) return;
     setZoom((current) => clamp(current + delta, 1, 3));
-  };
+  }, [isVideo]);
 
   const resetView = () => {
     if (isVideo) return;
@@ -151,20 +155,7 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedItem, currentIndex, items.length]);
-
-  useEffect(() => {
-    if (!selectedItem) return;
-    setShowUI(true);
-    setZoom(1);
-    setPan({ x: 0, y: 0 });
-  }, [selectedItem?.id]);
-
-  useEffect(() => {
-    if (!selectedItem || !showUI) return;
-    const timer = window.setTimeout(() => setShowUI(false), 3000);
-    return () => window.clearTimeout(timer);
-  }, [selectedItem?.id, showUI, currentIndex, zoom, pan.x, pan.y]);
+  }, [selectedItem, currentIndex, goToItem, changeZoom]);
 
   useEffect(() => {
     const query = window.matchMedia('(max-width: 767px)');
@@ -230,7 +221,7 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
           <div className="absolute left-3 top-4 z-30 flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-2 backdrop-blur-xl sm:left-5 sm:px-4">
             <p className="text-[10px] uppercase tracking-[0.32em] text-white/70">{selectedItem.title}</p>
             <span className="h-1 w-1 rounded-full bg-white/50" />
-            <p className="text-[10px] uppercase tracking-[0.32em] text-white/70">{formattedDate || '2025'}</p>
+            <p className="text-[10px] uppercase tracking-[0.32em] text-white/70">{formattedDate || 'Sin fecha'}</p>
           </div>
 
           <div className="absolute right-3 top-4 z-30 flex items-center gap-2 sm:right-5">
@@ -321,12 +312,12 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
             </div>
           </div>
 
-          <div className="absolute inset-x-0 bottom-0 z-20 px-3 pb-3 sm:px-4 sm:pb-4">
-            <div className={`transition-all duration-200 ${showUI ? 'opacity-100 translate-y-0' : 'pointer-events-none translate-y-3 opacity-0'}`}>
+          <div className="absolute inset-x-0 bottom-16 z-20 px-3 pb-3 sm:px-4 sm:pb-4">
+            <div className={`transition-all duration-200 ${!hideInfo ? 'opacity-100 translate-y-0' : 'pointer-events-none translate-y-3 opacity-0'}`}>
               <div className="rounded-[24px] border border-white/10 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-4 py-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:px-6 sm:py-5">
                 <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                   <div className="min-w-0">
-                    <p className="text-[10px] uppercase tracking-[0.35em] text-white/70">{formattedDate || '2025'}</p>
+                    <p className="text-[10px] uppercase tracking-[0.35em] text-white/70">{formattedDate || 'Sin fecha'}</p>
                     <h2 className="mt-1 text-lg font-semibold text-white sm:text-xl">{selectedItem.title}</h2>
                     {selectedItem.description ? (
                       <p className="mt-2 max-w-2xl text-sm leading-6 text-white/80">{selectedItem.description}</p>
@@ -340,7 +331,7 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
             </div>
           </div>
 
-          <div className={`absolute inset-x-0 bottom-6 z-20 flex justify-center gap-2 px-3 transition-all duration-200 sm:bottom-8 ${showUI ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
+          <div className={`absolute inset-x-0 bottom-3 z-30 flex justify-center gap-2 px-3 transition-all duration-200 sm:bottom-3 ${showUI ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
             <button
               type="button"
               onClick={() => changeZoom(0.2)}
@@ -384,20 +375,17 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
               key={item.id}
               type="button"
               onClick={() => openItem(item, index)}
+              aria-label={`${isVideoItem ? 'Abrir vídeo' : 'Abrir imagen'}: ${item.title}`}
               className="group overflow-hidden rounded-[2rem] border border-[#f3d48a]/10 bg-[#f6eddf] p-0 shadow-[0_20px_40px_rgba(0,0,0,0.05)] transition hover:shadow-[0_28px_50px_rgba(0,0,0,0.14)]"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f5efe7]">
                 {item.image_url ? (
                   isVideoItem ? (
-                    <video
-                      src={item.image_url}
-                      muted
-                      loop
-                      playsInline
-                      className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
-                    />
+                    <GalleryVideoPreview key={item.image_url} src={item.image_url} />
                   ) : (
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={item.image_url}
                       alt={item.title}
                       className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
@@ -414,7 +402,7 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
         })}
       </div>
 
-      {viewerContent}
+      {selectedItem && <DialogShell onClose={closeViewer} label={selectedItem.title || 'Galería'}>{viewerContent}</DialogShell>}
     </>
   );
 }

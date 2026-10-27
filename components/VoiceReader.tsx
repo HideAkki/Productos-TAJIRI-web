@@ -1,18 +1,20 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 const selectFemaleVoice = () => {
   if (typeof window === 'undefined' || !window.speechSynthesis) return null;
 
   const voices = window.speechSynthesis.getVoices();
-  const preferred = voices.find((voice) =>
+  const spanishVoices = voices.filter(voice => /^es(?:-|$)/i.test(voice.lang));
+  const preferred = spanishVoices.find((voice) =>
     /female|woman|mujer|femenina|sofia|sara|luz|clara|helena|mariana/i.test(
       `${voice.name} ${voice.voiceURI} ${voice.lang}`
     )
   );
 
-  return preferred || voices.find((voice) => /es(-|_)?.*/i.test(voice.lang)) || voices[0] || null;
+  return preferred || spanishVoices[0] || null;
 };
 
 const splitIntoSpeechChunks = (text: string) => {
@@ -52,6 +54,8 @@ const splitIntoSpeechChunks = (text: string) => {
 };
 
 export default function VoiceReader() {
+  const pathname = usePathname();
+  const [supported, setSupported] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voiceName, setVoiceName] = useState<string | null>(null);
   const queueRef = useRef<string[]>([]);
@@ -60,6 +64,7 @@ export default function VoiceReader() {
   useEffect(() => {
     if (typeof window === 'undefined' || !window.speechSynthesis) return;
 
+    setSupported(true);
     const handleVoicesChanged = () => {
       const voice = selectFemaleVoice();
       setVoiceName(voice?.name || null);
@@ -76,6 +81,13 @@ export default function VoiceReader() {
       window.speechSynthesis.cancel();
     };
   }, []);
+
+  useEffect(() => {
+    queueRef.current = [];
+    if (pauseTimerRef.current) window.clearTimeout(pauseTimerRef.current);
+    window.speechSynthesis?.cancel();
+    setIsSpeaking(false);
+  }, [pathname]);
 
   const speakNextChunk = () => {
     if (typeof window === 'undefined' || !window.speechSynthesis) return;
@@ -106,7 +118,7 @@ export default function VoiceReader() {
         setIsSpeaking(false);
       }
     };
-    utterance.onerror = () => setIsSpeaking(false);
+    utterance.onerror = () => { queueRef.current = []; setIsSpeaking(false); };
 
     window.speechSynthesis.speak(utterance);
   };
@@ -140,8 +152,10 @@ export default function VoiceReader() {
     setIsSpeaking(false);
   };
 
+  if (!supported) return null;
+
   return (
-    <div className="sticky top-[72px] z-40 border-b border-[#4a2b22]/10 bg-[#fff8f0]/95 px-6 py-3 shadow-sm backdrop-blur-sm sm:px-8">
+    <div className="voice-reader z-40 border-b border-[#4a2b22]/10 bg-[#fff8f0]/95 px-6 py-3 shadow-sm backdrop-blur-sm sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="text-sm text-[#4a2b22]/80">
           {isSpeaking ? 'Reproduciendo audio...' : 'Texto a voz disponible'}

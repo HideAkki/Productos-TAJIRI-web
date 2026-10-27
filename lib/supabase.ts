@@ -1,34 +1,15 @@
+import 'server-only';
 import { createClient } from '@supabase/supabase-js';
+import { createGalleryFetch } from './supabase-fetch.ts';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-if (!supabaseUrl) {
-  throw new Error('Missing Supabase environment variable: NEXT_PUBLIC_SUPABASE_URL.');
-}
-
-if (!supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variable: NEXT_PUBLIC_SUPABASE_ANON_KEY.');
-}
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    persistSession: false,
-    autoRefreshToken: false,
-  },
-});
-
+// Conserva la configuración original: la clave del servidor tiene prioridad.
+// Este módulo no se puede importar desde componentes del navegador.
 export function createServerSupabaseClient() {
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-  if (!serviceRoleKey) {
-    return supabase;
-  }
-
-  return createClient(supabaseUrl!, serviceRoleKey, {
-    auth: {
-      persistSession: false,
-      autoRefreshToken: false,
-    },
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !key) return null;
+  return createClient(url, key, {
+    auth: { persistSession: false, autoRefreshToken: false },
+    global: { fetch: createGalleryFetch() },
   });
 }

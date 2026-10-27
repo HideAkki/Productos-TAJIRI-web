@@ -10,6 +10,7 @@ export default function PrivacidadContent() {
       <div className="mx-auto max-w-6xl">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <SectionTitle
+            as="h1"
             eyebrow="Privacidad"
             title="Política de privacidad y tratamiento de datos"
             description="Protegemos tu información con compromiso y transparencia en cada proceso."
@@ -19,7 +20,7 @@ export default function PrivacidadContent() {
               <div className="space-y-4">
                 <h2 className="text-2xl font-semibold">Recopilación de datos</h2>
                 <p className="leading-8 text-[#4a2b22]/85">
-                  Recopilamos únicamente la información que tú nos proporcionas de forma voluntaria, como nombre, correo electrónico y mensaje cuando usas el formulario de contacto.
+                  Cuando utilizas el formulario, Productos TAJIRI recibe tu nombre, correo electrónico y mensaje para atender la consulta. Puedes contactarnos en isusedia@gmail.com o en Calle 104 #23-21, Provenza, Bucaramanga, Colombia.
                 </p>
               </div>
 
@@ -33,7 +34,7 @@ export default function PrivacidadContent() {
               <div className="space-y-4">
                 <h2 className="text-2xl font-semibold">Tratamiento y conservación</h2>
                 <p className="leading-8 text-[#4a2b22]/85">
-                  Conservamos tus datos solo mientras sean necesarios para atender tu solicitud o cumplir con obligaciones legales. No compartimos tu información con terceros sin tu consentimiento explícito.
+                  Conservamos tus datos solo mientras sean necesarios para atender tu solicitud o cumplir con obligaciones legales. Para enviar tu consulta por correo utilizamos Resend como proveedor de entrega. No publicamos tus mensajes. También utilizamos Supabase para la galería y Cloudinary o los servidores de Instagram para imágenes públicas.
                 </p>
               </div>
 

@@ -13,7 +13,7 @@ export default function StoryPreview() {
         <motion.div variants={fadeLeft} className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#fff8f0] via-[#f3d48a]/80 to-[#f3d48a]/20 p-4 shadow-[0_35px_120px_-65px_rgba(0,0,0,0.4)] sm:rounded-[2.5rem] sm:p-6">
           <div className="aspect-[4/3] overflow-hidden rounded-[1.5rem] shadow-inner shadow-amber-200/10 sm:rounded-[2rem]">
             <Image
-              src="/2009.jpg"
+              src="/2009.webp"
               alt="Momento inicial de la historia de TAJIRI"
               width={1200}
               height={900}

@@ -56,6 +56,7 @@ export default function TimelineCard({ item, onOpen }: TimelineCardProps) {
                 src={item.image}
                 alt={item.title}
                 fill
+                sizes="(min-width: 640px) 40vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
               />
             ) : (

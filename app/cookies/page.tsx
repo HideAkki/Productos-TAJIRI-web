@@ -1,9 +1,7 @@
+import { pageMetadata } from '@/lib/site';
 import CookiePolicyContent from '@/components/CookiePolicyContent';
 
-export const metadata = {
-  title: 'Política de Cookies | Productos TAJIRI',
-  description: 'Política de cookies para Productos TAJIRI y consentimiento de uso.',
-};
+export const metadata = pageMetadata('Cookies y almacenamiento local', 'Información sobre el almacenamiento de preferencias en Productos TAJIRI.', '/cookies');
 
 export default function CookiePolicyPage() {
   return <CookiePolicyContent />;

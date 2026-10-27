@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, X } from 'lucide-react';
@@ -16,17 +14,17 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.1fr_0.9fr] lg:gap-12">
         <div className="space-y-6">
           <div className="inline-flex items-center gap-3">
-            <Image src="/logo-tajiri.png" alt="Logo TAJIRI" width={56} height={56} className="object-contain" />
+            <Image src="/logo-tajiri.webp" alt="Logo TAJIRI" width={56} height={56} className="object-contain" />
           </div>
           <p className="max-w-xl text-sm leading-7 text-[#4a2b22]/80">
             Productos TAJIRI® 
           </p>
-          <div className="flex flex-wrap items-center gap-3 text-slate-300 sm:gap-4">
-            <Link href="https://www.facebook.com/profile.php?id=61575655058662" target="_blank" rel="noreferrer" className="transition hover:text-amber-200"><Facebook className="h-5 w-5" /></Link>
-            <Link href="https://www.instagram.com/productos___tajiri_/" target="_blank" rel="noreferrer" className="transition hover:text-amber-200"><Instagram className="h-5 w-5" /></Link>
-            <Link href="https://x.com/IsnelUseda" target="_blank" rel="noreferrer" className="transition hover:text-amber-200"><X className="h-5 w-5" /></Link>
-            <Link href="https://www.linkedin.com/in/isnel-useda-d%C3%ADaz-a5506b44/" target="_blank" rel="noreferrer" className="transition hover:text-amber-200"><Linkedin className="h-5 w-5" /></Link>
-            <Link href="https://www.tiktok.com/@productos_tajiri" target="_blank" rel="noreferrer" className="transition hover:text-amber-200"><TikTokIcon /></Link>
+          <div className="flex flex-wrap items-center gap-3 text-[#4a2b22]/80 sm:gap-4">
+            <Link href="https://www.facebook.com/profile.php?id=61575655058662" target="_blank" rel="noreferrer" className="transition hover:text-[#8f1111]" aria-label="TAJIRI en Facebook"><Facebook className="h-5 w-5" /></Link>
+            <Link href="https://www.instagram.com/productos___tajiri_/" target="_blank" rel="noreferrer" className="transition hover:text-[#8f1111]" aria-label="TAJIRI en Instagram"><Instagram className="h-5 w-5" /></Link>
+            <Link href="https://x.com/IsnelUseda" target="_blank" rel="noreferrer" className="transition hover:text-[#8f1111]" aria-label="TAJIRI en X"><X className="h-5 w-5" /></Link>
+            <Link href="https://www.linkedin.com/in/isnel-useda-d%C3%ADaz-a5506b44/" target="_blank" rel="noreferrer" className="transition hover:text-[#8f1111]" aria-label="TAJIRI en LinkedIn"><Linkedin className="h-5 w-5" /></Link>
+            <Link href="https://www.tiktok.com/@productos_tajiri" target="_blank" rel="noreferrer" className="transition hover:text-[#8f1111]" aria-label="TAJIRI en TikTok"><TikTokIcon /></Link>
           </div>
         </div>
 
@@ -47,8 +45,8 @@ export default function Footer() {
             <p className="text-sm uppercase tracking-[0.35em] text-[#4a2b22]/80">Contacto</p>
             <div className="space-y-3 text-sm text-[#4a2b22]/80">
               <div className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0" /> <span>Calle 104 #23-21, Provenza, Bucaramanga, Colombia</span></div>
-              <div className="flex items-center gap-2"><Phone className="h-4 w-4 shrink-0" /> <span>+57 313 3761781</span></div>
-              <div className="flex items-center gap-2"><Mail className="h-4 w-4 shrink-0" /> <span>isusedia@gmail.com</span></div>
+              <div className="flex items-center gap-2"><Phone className="h-4 w-4 shrink-0" /> <a href="tel:+573133761781">+57 313 3761781</a></div>
+              <div className="flex items-center gap-2"><Mail className="h-4 w-4 shrink-0" /> <a href="mailto:isusedia@gmail.com">isusedia@gmail.com</a></div>
             </div>
           </div>
         </div>

@@ -1,59 +1,17 @@
 'use client';
-
 import SectionTitle from '@/components/SectionTitle';
-import { motion } from 'framer-motion';
-import { fadeUp } from '@/lib/motion';
-
 export default function CookiePolicyContent() {
-  return (
-    <main className="relative overflow-hidden px-6 py-16 sm:px-8">
-      <div className="mx-auto max-w-6xl">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-          <SectionTitle
-            eyebrow="Cookies"
-            title="Política de cookies"
-            description="Entiende cómo usamos cookies y cómo aceptarlas para mejorar tu experiencia." 
-          />
-          <div className="mt-10 rounded-[2rem] border border-[#4a2b22]/10 bg-white/95 p-8 shadow-[0_40px_90px_-65px_rgba(74,43,34,0.12)]">
-            <section className="space-y-8 text-[#4a2b22]">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold">¿Qué son las cookies?</h2>
-                <p className="leading-8 text-[#4a2b22]/85">
-                  Las cookies son pequeños archivos que se almacenan en tu navegador para recordar preferencias y mejorar la navegación en el sitio.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold">¿Para qué las usamos?</h2>
-                <p className="leading-8 text-[#4a2b22]/85">
-                  Utilizamos cookies para guardar tu consentimiento, permitir funciones de navegación y ofrecer una experiencia más fluida y personalizada.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold">Consentimiento</h2>
-                <p className="leading-8 text-[#4a2b22]/85">
-                  Al aceptar el banner de cookies, permites que guardemos tu preferencia para que no se vuelva a mostrar en futuras visitas.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold">Gestión de cookies</h2>
-                <p className="leading-8 text-[#4a2b22]/85">
-                  Puedes borrar las cookies desde tu navegador en cualquier momento. Si eliminas las cookies, es posible que debas aceptar nuevamente la política la próxima vez que visites el sitio.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold">Más información</h2>
-                <p className="leading-8 text-[#4a2b22]/85">
-                  Si tienes dudas sobre privacidad o cookies, contáctanos en <strong>isusedia@gmail.com</strong> para recibir asistencia.
-                </p>
-              </div>
-            </section>
-          </div>
-        </motion.div>
-      </div>
-    </main>
-  );
+  const reset = () => {
+    try { window.localStorage.removeItem('tajiri_cookie_consent'); } catch { /* Sin acceso al almacenamiento. */ }
+    window.dispatchEvent(new Event('tajiri:preferences-reset'));
+  };
+  return <main className="mx-auto max-w-5xl px-6 py-16">
+    <SectionTitle as="h1" title="Cookies y almacenamiento local" />
+    <div className="mt-10 space-y-8 rounded-3xl bg-white p-8 leading-8">
+      <section><h2 className="text-2xl font-semibold">Qué guarda este sitio</h2><p>No incorporamos herramientas de publicidad ni analítica. El aviso de privacidad utiliza almacenamiento local del navegador, no una cookie. Si seleccionas “Recordar mi elección”, se guarda la clave <code>tajiri_cookie_consent</code> con el valor <code>accepted</code>. No contiene tu nombre ni correo.</p></section>
+      <section><h2 className="text-2xl font-semibold">Duración y elección</h2><p>La preferencia permanece en este navegador hasta que la elimines. “Cerrar sin guardar” oculta el aviso durante esta visita sin escribir esa preferencia. Si el navegador bloquea el almacenamiento, puedes seguir navegando.</p></section>
+      <section><h2 className="text-2xl font-semibold">Cómo eliminar la preferencia</h2><p>Puedes borrar los datos del sitio desde tu navegador o usar este botón. Borrar únicamente las cookies no siempre elimina el almacenamiento local.</p><button type="button" onClick={reset} className="mt-4 rounded-full bg-[#8f1111] px-6 py-3 text-white">Restablecer mi preferencia</button></section>
+      <section><h2 className="text-2xl font-semibold">Servicios externos</h2><p>Las imágenes pueden cargarse desde Cloudinary y los servidores de Instagram. Al seguir enlaces a redes sociales se aplican sus propias políticas. Para consultas: <a href="mailto:isusedia@gmail.com" className="underline">isusedia@gmail.com</a>.</p></section>
+    </div>
+  </main>;
 }

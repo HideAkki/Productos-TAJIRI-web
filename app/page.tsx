@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/site';
 import Hero from '@/components/Hero';
 import StatsSection from '@/components/StatsSection';
 import WhyBuffalo from '@/components/WhyBuffalo';
@@ -6,11 +7,7 @@ import StoryPreview from '@/components/StoryPreview';
 import BlogPreview from '@/components/BlogPreview';
 import CTASection from '@/components/CTASection';
 
-export const metadata = {
-  title: 'Inicio',
-  description:
-    'Bienvenido a Productos TAJIRI — conoce nuestros productos de leche de búfala, yogures y snacks artesanales.',
-};
+export const metadata = pageMetadata('Inicio', 'Productos artesanales TAJIRI: leche de búfala, yogures y especialidades en Bucaramanga.', '/');
 
 export default function Home() {
   return (

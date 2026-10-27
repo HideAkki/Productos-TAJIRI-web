@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -25,6 +25,22 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileConocenosOpen, setIsMobileConocenosOpen] = useState(false);
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const close = () => { setIsMenuOpen(false); setIsConocenosOpen(false); setIsMobileConocenosOpen(false); };
+    const keydown = (event: KeyboardEvent) => { if (event.key === 'Escape') {
+      const active = document.activeElement;
+      if (headerRef.current?.contains(active)) {
+        const id = isMenuOpen ? 'mobile-menu-toggle' : 'conocenos-toggle';
+        close(); document.getElementById(id)?.focus();
+      }
+    } };
+    const outside = (event: PointerEvent) => { if (!headerRef.current?.contains(event.target as Node)) close(); };
+    document.addEventListener('keydown', keydown);
+    document.addEventListener('pointerdown', outside);
+    return () => { document.removeEventListener('keydown', keydown); document.removeEventListener('pointerdown', outside); };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -34,6 +50,7 @@ export default function Navbar() {
 
   return (
     <motion.header
+      ref={headerRef}
       variants={fadeDown}
       initial="hidden"
       animate="show"
@@ -41,7 +58,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-8 sm:py-4">
         <Link href="/" className="group inline-flex items-center gap-3">
-          <Image src="/logo-tajiri.png" alt="Logo TAJIRI" width={72} height={72} className="h-12 w-12 object-contain sm:h-16 sm:w-16" />
+          <Image src="/logo-tajiri.webp" alt="Logo TAJIRI" width={72} height={72} className="h-12 w-12 object-contain sm:h-16 sm:w-16" />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -57,9 +74,10 @@ export default function Navbar() {
           <div
             className="relative"
             onMouseEnter={() => setIsConocenosOpen(true)}
-            onMouseLeave={() => setIsConocenosOpen(false)}
+            onMouseLeave={(event) => { if (!event.currentTarget.contains(document.activeElement)) setIsConocenosOpen(false); }}
+            onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setIsConocenosOpen(false); }}
           >
-            <button className="group flex items-center gap-1 text-sm font-medium text-[#4a2b22] transition duration-300 hover:text-[#8f1111]">
+            <button id="conocenos-toggle" type="button" aria-expanded={isConocenosOpen} aria-controls="conocenos-submenu" onClick={() => setIsConocenosOpen(value => !value)} className="group flex items-center gap-1 text-sm font-medium text-[#4a2b22] transition duration-300 hover:text-[#8f1111]">
               <span className="relative inline-flex items-center gap-1 after:absolute after:-bottom-1 after:left-0 after:h-[1px] after:w-0 after:bg-[#e4b45f] after:transition-all after:duration-300 group-hover:after:w-full">
                 Conócenos
                 <ChevronDown
@@ -79,7 +97,7 @@ export default function Navbar() {
                   className="absolute top-full left-0 pt-2 w-48"
                 >
                   <div className="rounded-[1.5rem] border border-[#4a2b22]/10 bg-white/95 shadow-[0_20px_60px_rgba(0,0,0,0.15)] backdrop-blur-xl">
-                    <div className="space-y-1 p-2">
+                    <div id="conocenos-submenu" className="space-y-1 p-2">
                       {conocenosSubmenu.map((item) => (
                         <Link
                           key={item.href}
@@ -113,6 +131,8 @@ export default function Navbar() {
         <div className="flex items-center gap-2 lg:hidden">
           <button
             type="button"
+            id="mobile-menu-toggle"
+            aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             onClick={() => setIsMenuOpen((current) => !current)}
@@ -147,7 +167,7 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             className="overflow-hidden border-t border-[#4a2b22]/10 bg-white/95 lg:hidden"
           >
-            <div className="mx-auto max-w-7xl px-4 pb-6 pt-4 sm:px-8">
+            <nav id="mobile-navigation" aria-label="Navegación móvil" className="mx-auto max-w-7xl px-4 pb-6 pt-4 sm:px-8">
               <div className="space-y-3">
                 {navItems.map((item) => (
                   <Link
@@ -162,6 +182,8 @@ export default function Navbar() {
                 <div className="rounded-[1.5rem] border border-[#4a2b22]/10 bg-[#fff8f0] px-4 py-3">
                   <button
                     type="button"
+                    aria-expanded={isMobileConocenosOpen}
+                    aria-controls="mobile-conocenos"
                     onClick={() => setIsMobileConocenosOpen((current) => !current)}
                     className="flex w-full items-center justify-between text-sm font-medium text-[#4a2b22]"
                   >
@@ -175,6 +197,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.2 }}
+                        id="mobile-conocenos"
                         className="mt-3 overflow-hidden"
                       >
                         <div className="space-y-2">
@@ -193,7 +216,7 @@ export default function Navbar() {
                   </AnimatePresence>
                 </div>
               </div>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

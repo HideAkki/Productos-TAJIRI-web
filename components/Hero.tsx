@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
 import { fadeUp, fadeRight, scaleIn, staggerContainer } from '@/lib/motion';
 
@@ -15,12 +15,13 @@ const heroFeatures = [
 function MascotIllustration() {
   return (
     <motion.div variants={scaleIn} className="relative mx-auto flex items-center justify-center">
-      <Image src="/Nala.png" alt="Nala" width={420} height={420} className="h-auto w-full max-w-[280px] object-contain sm:max-w-[420px]" />
+      <Image src="/Nala.webp" alt="Nala" width={420} height={420} priority sizes="(min-width: 640px) 420px, 280px" className="h-auto w-full max-w-[280px] object-contain sm:max-w-[420px]" />
     </motion.div>
   );
 }
 
 export default function Hero() {
+  const reducedMotion = useReducedMotion();
   return (
     <section className="overflow-hidden bg-[#fff8f0] pb-16 pt-6 sm:pb-24 sm:pt-10">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:gap-12 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -70,7 +71,7 @@ export default function Hero() {
               <motion.div
                 initial={{ y: -18, opacity: 0.88, rotate: -2 }}
                 animate={{ y: 0, opacity: 1, rotate: 0 }}
-                transition={{ repeat: Infinity, repeatType: 'reverse', duration: 8, ease: 'easeInOut' }}
+                transition={{ repeat: reducedMotion ? 0 : Infinity, repeatType: 'reverse', duration: 8, ease: 'easeInOut' }}
               >
                 <MascotIllustration />
               </motion.div>

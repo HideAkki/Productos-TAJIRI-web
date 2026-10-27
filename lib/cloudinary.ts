@@ -8,13 +8,9 @@ type CloudinaryOptions = {
 
 const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 
-if (!cloudName) {
-  throw new Error('Missing NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME environment variable.');
-}
-
-const cloudinaryBaseUrl = `https://res.cloudinary.com/${cloudName}/image/upload`;
-
 export function buildCloudinaryImageUrl(publicId: string, options: CloudinaryOptions = {}) {
+  if (!cloudName) throw new Error('Configura NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME para utilizar CloudinaryImage.');
+  const cloudinaryBaseUrl = `https://res.cloudinary.com/${cloudName}/image/upload`;
   const transformations: string[] = [];
 
   if (options.width) transformations.push(`w_${options.width}`);

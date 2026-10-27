@@ -79,7 +79,7 @@ export default function NotFoundContent() {
           className="flex justify-center"
         >
           <Image
-            src="/bufalo.png"
+            src="/bufalo.webp"
             width={260}
             height={160}
             alt="Búfalo TAJIRI"

@@ -1,9 +1,7 @@
+import { pageMetadata } from '@/lib/site';
 import PrivacidadContent from '@/components/PrivacidadContent';
 
-export const metadata = {
-  title: 'Política de Privacidad | Productos TAJIRI',
-  description: 'Política de privacidad y tratamiento de datos personales de Productos TAJIRI.',
-};
+export const metadata = pageMetadata('Privacidad', 'Cómo Productos TAJIRI trata los datos de tus consultas.', '/privacidad');
 
 export default function PrivacidadPage() {
   return <PrivacidadContent />;

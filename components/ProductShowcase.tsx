@@ -5,40 +5,10 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { fadeUp, staggerContainer } from '@/lib/motion';
 
-const products = [
-  {
-    title: 'Suero Costeño',
-    description: 'Fresco y auténtico, con una textura ligera y sabor tradicional. Se consume con cuchara o sobre alimentos.',
-    color: 'from-[#8f1111] to-[#4a2b22]',
-    coverImage: '/Portada Suero.png',
-  },
-  {
-    title: 'Yogurt Griego Bebible',
-    description: 'Listo para llevar, suave y delicado, con la riqueza de la leche de búfala. Es un producto líquido que se bebe.',
-    color: 'from-[#e4b45f] to-[#f3d48a]',
-    coverImage: '/Portada Yogurt Griego.png',
-  },
-  {
-    title: 'Su-Kukayo',
-    description: 'Snack tradicional con un toque auténtico, crujiente y nutritivo.',
-    color: 'from-[#8f1111] to-[#e4b45f]',
-  },
-  {
-    title: 'Chakula Premium Café',
-    description: 'Bebida tipo malteada con extracto de café, fibra soluble y aceite Omega 3.',
-    color: 'from-[#6b3f1d] to-[#b96a2b]',
-  },
-  {
-    title: 'Yogurt Griego',
-    description: 'Crema perfecta y cuerpo firme, para un disfrute saludable y apetitoso. Se consume a cuchara.',
-    color: 'from-[#4a2b22] to-[#8f1111]',
-  },
-  {
-    title: 'TURARI',
-    description: 'Aderezo líquido para carnes elaborado a partir de extracto de hierbas.',
-    color: 'from-[#2e6b3f] to-[#6e9d4f]',
-  },
-];
+import { products as catalog } from '@/lib/products';
+
+const featuredTitles = ['Suero Costeño', 'Yogur Griego', 'Yogurt Griego Bebible', 'Su-Kukayo', 'Chakula Premium Café', 'TURARI'];
+const products = featuredTitles.flatMap(title => catalog.filter(product => product.title === title));
 
 export default function ProductShowcase() {
   return (
@@ -76,7 +46,7 @@ export default function ProductShowcase() {
                   alt={`${product.title} portada`}
                   fill
                   className="absolute inset-0 object-cover opacity-90"
-                  sizes="100vw"
+                  sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
                 />
               ) : null}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

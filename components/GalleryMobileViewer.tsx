@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type TouchEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, MoreVertical } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 
 type GalleryItem = {
   id: string;
@@ -36,7 +36,6 @@ export default function GalleryMobileViewer({
   currentIndex,
   itemsLength,
   isVideo,
-  showUI,
   onClose,
   onNext,
   onPrev,
@@ -55,6 +54,7 @@ export default function GalleryMobileViewer({
     lastX: 0,
     lastY: 0,
     startTime: 0,
+    pinching: false,
     pinchDistance: 0,
     initialZoom: zoom,
     zoomCenter: { x: 0, y: 0 },
@@ -73,28 +73,10 @@ export default function GalleryMobileViewer({
     onInteraction();
   };
 
-  const handleDoubleTap = (event: TouchEvent<HTMLDivElement>) => {
-    const now = Date.now();
-    const touch = event.touches[0];
-    const rect = viewerRef.current?.getBoundingClientRect();
-    if (!rect || !touch) return;
-
-    const tapX = touch.clientX - rect.left - rect.width / 2;
-    const tapY = touch.clientY - rect.top - rect.height / 2;
-
-    if (now - lastTapRef.current < 300) {
-      if (zoom > 1) {
-        resetView();
-      } else {
-        setZoom(2);
-        setPan({ x: -tapX, y: -tapY });
-      }
-    }
-    lastTapRef.current = now;
-  };
-
   const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).closest('button, video')) return;
     onInteraction();
+    touchState.current.pinching = event.touches.length > 1;
     if (event.touches.length === 1) {
       const touch = event.touches[0];
       touchState.current.startX = touch.clientX;
@@ -106,6 +88,7 @@ export default function GalleryMobileViewer({
     }
 
     if (event.touches.length === 2) {
+      touchState.current.pinching = true;
       const first = event.touches.item(0);
       const second = event.touches.item(1);
       if (!first || !second) return;
@@ -121,7 +104,7 @@ export default function GalleryMobileViewer({
   };
 
   const handleTouchMove = (event: TouchEvent<HTMLDivElement>) => {
-    if (!viewerRef.current) return;
+    if (!viewerRef.current || (event.target as HTMLElement).closest('button, video')) return;
     if (event.touches.length === 2) {
       event.preventDefault();
       const first = event.touches.item(0);
@@ -135,19 +118,23 @@ export default function GalleryMobileViewer({
       return;
     }
 
-    if (event.touches.length === 1 && zoom > 1) {
-      event.preventDefault();
+    if (event.touches.length === 1) {
       const touch = event.touches[0];
       const deltaX = touch.clientX - touchState.current.lastX;
       const deltaY = touch.clientY - touchState.current.lastY;
       touchState.current.lastX = touch.clientX;
       touchState.current.lastY = touch.clientY;
-      setPan({ x: pan.x + deltaX, y: pan.y + deltaY });
+      if (zoom > 1 && !isVideo) {
+        event.preventDefault();
+        setPan({ x: pan.x + deltaX, y: pan.y + deltaY });
+      }
     }
   };
 
   const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
-    if (event.touches.length > 0) return;
+    if ((event.target as HTMLElement).closest('button, video') || event.touches.length > 0 || touchState.current.pinching) return;
+    const end = event.changedTouches[0];
+    if (end) { touchState.current.lastX = end.clientX; touchState.current.lastY = end.clientY; }
 
     const deltaX = touchState.current.lastX - touchState.current.startX;
     const deltaY = touchState.current.lastY - touchState.current.startY;
@@ -184,11 +171,6 @@ export default function GalleryMobileViewer({
         return;
       }
 
-      if (!showUI) {
-        onInteraction();
-        return;
-      }
-
       const touchXRatio = (touch.clientX - rect.left) / rect.width;
       if (touchXRatio < 0.2) {
         onPrev();
@@ -203,7 +185,7 @@ export default function GalleryMobileViewer({
   };
 
   const titleLabel = selectedItem.title || 'Imagen';
-  const infoLabel = selectedItem.date ? new Date(selectedItem.date).toLocaleDateString('es-ES', { year: 'numeric' }) : '2025';
+  const infoLabel = selectedItem.date ? new Date(selectedItem.date).toLocaleDateString('es-ES', { year: 'numeric' }) : 'Sin fecha';
 
   return (
     <AnimatePresence>
@@ -214,6 +196,7 @@ export default function GalleryMobileViewer({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.24, ease: 'easeOut' }}
+        style={{ touchAction: isVideo ? 'auto' : 'none' }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -281,14 +264,6 @@ export default function GalleryMobileViewer({
           <div className="pointer-events-auto flex items-center justify-center rounded-full bg-black/40 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-xl">
             <span>{String(currentIndex + 1).padStart(2, '0')} / {String(itemsLength).padStart(2, '0')}</span>
           </div>
-          <button
-            type="button"
-            onClick={(event) => event.stopPropagation()}
-            className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-xl transition hover:bg-white/15"
-            aria-label="Opciones"
-          >
-            <MoreVertical className="h-5 w-5" />
-          </button>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 px-[max(env(safe-area-inset-left),16px)] pb-[max(env(safe-area-inset-bottom),16px)]">
@@ -301,21 +276,11 @@ export default function GalleryMobileViewer({
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={(event) => {
-            event.stopPropagation();
-            if (!showUI) {
-              onInteraction();
-            }
-            if (zoom <= 1) return;
-            resetView();
-          }}
-          className="pointer-events-auto absolute inset-x-0 bottom-24 z-20 mx-auto hidden h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-xl text-sm transition hover:bg-white/15 sm:flex"
-          aria-label="Restablecer zoom"
-        >
-          {zoom > 1 ? 'x' : '+'}
-        </button>
+        <div className="absolute inset-x-0 bottom-24 z-30 flex justify-center gap-4">
+          <button type="button" aria-label="Imagen anterior" onClick={onPrev} className="rounded-full bg-black/70 p-3 text-white"><ChevronLeft /></button>
+          {!isVideo && <button type="button" aria-label="Restablecer zoom" onClick={resetView} className="rounded-full bg-black/70 p-3 text-white"><RotateCcw /></button>}
+          <button type="button" aria-label="Imagen siguiente" onClick={onNext} className="rounded-full bg-black/70 p-3 text-white"><ChevronRight /></button>
+        </div>
       </motion.div>
     </AnimatePresence>
   );
