@@ -77,7 +77,7 @@ La protección de frecuencia es **por instancia**: tres intentos por correo cada
 - Catálogo único en `lib/products.ts`; inicio y catálogo usan estos mismos datos.
 - Cada detalle permite consultar por producto y presentación en `/contacto`.
 - Los productos sin fotos muestran un aviso claro; reemplázalo con fotografías reales cuando estén disponibles. No se han inventado precios, disponibilidad ni fotografías.
-- Los componentes usan copias WebP optimizadas de los recursos; se conservan los originales en `public` para futuras ediciones. Open Graph utiliza `og-image.jpg` (1200 × 630).
+- Los componentes usan imágenes optimizadas cuando están disponibles; conserva copias originales fuera de `public` si las necesitas para futuras ediciones. Open Graph utiliza `og-image.jpg` (1200 × 630).
 - Las ventanas usan el diálogo nativo del navegador para foco, fondo inerte y Escape. Se respeta la preferencia de movimiento reducido.
 - El aviso de privacidad guarda únicamente `tajiri_cookie_consent` en localStorage si el visitante lo elige. No hay publicidad ni analítica incorporadas. Las políticas deben mantenerse alineadas con los servicios y procesos reales de la empresa.
 

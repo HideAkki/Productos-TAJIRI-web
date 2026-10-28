@@ -7,7 +7,7 @@ import { fadeUp, staggerContainer } from '@/lib/motion';
 
 import { products as catalog } from '@/lib/products';
 
-const featuredTitles = ['Suero Costeño', 'Yogur Griego', 'Yogurt Griego Bebible', 'Su-Kukayo', 'Chakula Premium Café', 'TURARI'];
+const featuredTitles = ['Suero Costeño', 'Yogur Griego', 'Yogurt Griego Bebible', 'Su-Kukayo', 'LEACTIVA', 'Chakula Premium Café', 'TURARI'];
 const products = featuredTitles.flatMap(title => catalog.filter(product => product.title === title));
 
 export default function ProductShowcase() {
@@ -50,6 +50,11 @@ export default function ProductShowcase() {
                 />
               ) : null}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              {product.statusLabel ? (
+                <span className="absolute right-4 top-4 z-10 rounded-full bg-amber-300 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#4a2b22]">
+                  {product.statusLabel}
+                </span>
+              ) : null}
               <div className="relative flex h-full items-end justify-start rounded-[1.75rem] bg-black/10 p-4 text-white">
                 <div className="space-y-2">
                   <p className="text-sm uppercase tracking-[0.35em]">Seleccionado</p>

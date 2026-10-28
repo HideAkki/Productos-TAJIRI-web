@@ -28,6 +28,73 @@ test('menú por teclado y detalle con foco, Escape y consulta contextual', async
   await page.getByRole('link', { name: 'Consultar por este producto' }).click();
   await expect(page.getByLabel('Mensaje', { exact: true })).toHaveValue(/Suero Costeño, presentación 9 oz/);
 });
+test('el detalle del yogur griego muestra las imágenes correctas por presentación', async ({ page }) => {
+  await page.goto('/productos'); await dismissNotice(page);
+  const product = page.locator('article').filter({ has: page.getByText('Yogur Griego', { exact: true }) });
+  await product.getByRole('button', { name: 'Ver detalle', exact: true }).click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog.locator('img').first()).toHaveAttribute('alt', 'Presentación de yogur griego de 16 oz');
+  await expect(dialog.getByRole('button', { name: 'Ver imagen 2: Yogures griegos' })).toBeVisible();
+  await page.getByRole('button', { name: '9 oz', exact: true }).click();
+  await expect(dialog.locator('img').first()).toHaveAttribute('alt', 'Presentación de yogur griego de 9 oz');
+  await expect(dialog.getByRole('button', { name: 'Ver imagen 2: Yogures griegos' })).toBeVisible();
+  await dialog.getByRole('button', { name: 'Ver imagen 2: Yogures griegos' }).click();
+  await expect(dialog.locator('img').first()).toHaveAttribute('alt', 'Variedad de yogures griegos TAJIRI');
+});
+test('el detalle del suero costeño muestra las imágenes correctas por presentación', async ({ page }) => {
+  await page.goto('/productos'); await dismissNotice(page);
+  const product = page.locator('article').filter({ has: page.getByText('Suero Costeño', { exact: true }) });
+  await product.getByRole('button', { name: 'Ver detalle', exact: true }).click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog.locator('img').first()).toHaveAttribute('alt', 'Presentación de suero costeño de 16 oz');
+  await expect(dialog.getByRole('button', { name: 'Ver imagen 2: Sueros costeños' })).toBeVisible();
+  await page.getByRole('button', { name: '9 oz', exact: true }).click();
+  await expect(dialog.locator('img').first()).toHaveAttribute('alt', 'Presentación de suero costeño de 9 oz');
+  await expect(dialog.getByRole('button', { name: 'Ver imagen 2: Sueros costeños' })).toBeVisible();
+  await dialog.getByRole('button', { name: 'Ver imagen 2: Sueros costeños' }).click();
+  await expect(dialog.locator('img').first()).toHaveAttribute('alt', 'Presentaciones de suero costeño TAJIRI');
+});
+test('las fichas de Chakula muestran sus imágenes de producto', async ({ page }) => {
+  await page.goto('/productos'); await dismissNotice(page);
+  const products = [
+    { title: 'Chakula Premium Café', alt: 'Botella de café Chákula Premium de 250 ml' },
+    { title: 'Chakula Premium Cacao', alt: 'Botella premium de extracto de cacao Chakula' },
+  ];
+  for (const productData of products) {
+    const product = page.locator('article').filter({ has: page.getByText(productData.title, { exact: true }) });
+    await product.getByRole('button', { name: 'Ver detalle', exact: true }).click();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog.locator('img').first()).toHaveAttribute('alt', productData.alt);
+    await page.getByRole('button', { name: 'Cerrar detalle' }).click();
+  }
+});
+test('LEACTIVA aparece en inicio y catálogo con su portada e imagen de detalle', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByText('LEACTIVA', { exact: true })).toBeVisible();
+  await expect(page.getByText('En desarrollo').first()).toBeVisible();
+  await page.goto('/productos'); await dismissNotice(page);
+  const product = page.locator('article').filter({ has: page.getByText('LEACTIVA', { exact: true }) });
+  await expect(product.locator('img')).toHaveAttribute('src', /Leactiva%20Portada\.png/);
+  await expect(product.getByText('En desarrollo')).toBeVisible();
+  await product.getByRole('button', { name: 'Ver detalle', exact: true }).click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog.getByRole('heading', { name: 'LEACTIVA', exact: true })).toBeVisible();
+  await expect(dialog.locator('img').first()).toHaveAttribute('src', /Leactiva%201\.png/);
+  await expect(dialog).toContainText('Hierbabuena');
+  await expect(dialog).toContainText('Manzanilla');
+  await expect(dialog).toContainText('Limonaria');
+  await expect(dialog).toContainText('Orégano');
+});
+test('Nala Peinate y TURARI están marcados en desarrollo en sus tarjetas', async ({ page }) => {
+  await page.goto('/productos'); await dismissNotice(page);
+  for (const title of ['Nala Peinate', 'TURARI']) {
+    const product = page.locator('article').filter({ has: page.getByText(title, { exact: true }) });
+    await expect(product.getByText('En desarrollo')).toBeVisible();
+  }
+  await page.goto('/');
+  const turari = page.locator('article').filter({ has: page.getByText('TURARI', { exact: true }) });
+  await expect(turari.getByText('En desarrollo')).toBeVisible();
+});
 test('el contacto no finge un envío sin proveedor configurado', async ({ page }) => {
   await page.goto('/contacto'); await dismissNotice(page);
   await page.getByLabel('Nombre', { exact: true }).fill('Cliente de prueba');

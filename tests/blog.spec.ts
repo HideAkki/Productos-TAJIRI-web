@@ -6,7 +6,7 @@ const posts: SocialPost[] = Array.from({ length: 14 }, (_, index) => ({
   text: index === 0 ? `Suero para compartir. ${'Una historia de nuestra cocina, sabores y momentos en familia. '.repeat(5)}` : `Historia ${index + 1}: un momento de TAJIRI.`,
   date: `${27 - index} oct 2026`, publishedAt: new Date(Date.UTC(2026, 9, 27 - index)).toISOString(),
   link: `https://www.instagram.com/p/test-${index}/`,
-  image: index % 2 ? '/Portada Suero.webp' : '/Portada Yogurt Griego.webp',
+  image: index % 2 ? '/Portada Suero.png' : '/Portada Yogurt Griego.png',
   mediaType: (['IMAGE', 'VIDEO', 'CAROUSEL_ALBUM'] as const)[index % 3],
 }));
 async function loadPosts(page: import('@playwright/test').Page) {

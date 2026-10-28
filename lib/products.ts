@@ -14,6 +14,7 @@ export type Product = {
   variantImages?: Record<string, ProductImage[]>;
   coverImage?: string;
   size?: string;
+  statusLabel?: string;
   imageLabel: string;
   features: string[];
   images: ProductImage[];
@@ -34,17 +35,15 @@ export const products: Product[] = [
     },
     variantImages: {
       '16 oz': [
-        { src: '/Suero 16oz - 1.webp', alt: 'Botella de suero costeño 16 oz sobre tela natural', label: 'Etiqueta frontal 16 oz' },
-        { src: '/Suero 16oz - 2.webp', alt: 'Detalle de botella de suero costeño 16 oz', label: 'Detalle del envase 16 oz' },
-        { src: '/Suero 16oz - 3.webp', alt: 'Suero costeño 16 oz servido en vaso', label: 'Servido en vaso 16 oz' },
+        { src: '/Suero 16oz.png', alt: 'Presentación de suero costeño de 16 oz', label: 'Suero costeño 16 oz' },
+        { src: '/Sueros Costeños.png', alt: 'Presentaciones de suero costeño TAJIRI', label: 'Sueros costeños' },
       ],
       '9 oz': [
-        { src: '/Suero 9oz - 1.webp', alt: 'Botella de suero costeño 9 oz sobre tela natural', label: 'Etiqueta frontal 9 oz' },
-        { src: '/Suero 9oz - 2.webp', alt: 'Detalle de botella de suero costeño 9 oz', label: 'Detalle del envase 9 oz' },
-        { src: '/Suero 9oz - 3.webp', alt: 'Suero costeño 9 oz servido en vaso', label: 'Servido en vaso 9 oz' },
+        { src: '/Suero 9oz.png', alt: 'Presentación de suero costeño de 9 oz', label: 'Suero costeño 9 oz' },
+        { src: '/Sueros Costeños.png', alt: 'Presentaciones de suero costeño TAJIRI', label: 'Sueros costeños' },
       ],
     },
-    coverImage: '/Portada Suero.webp',
+    coverImage: '/Portada Suero.png',
     imageLabel: 'Vaso Gold de plástico',
     features: ['Textura cremosa', 'Toque ligeramente ácido', 'Leche de búfala', 'Elaboración artesanal'],
     images: [],
@@ -63,15 +62,15 @@ export const products: Product[] = [
     },
     variantImages: {
       '16 oz': [
-        { src: '/Yogurt griego 16oz - 1.webp', alt: 'Tarrina de yogur griego 16 oz con tapa', label: 'Tarrina elegante 16 oz' },
-        { src: '/Yogurt griego 16oz - 2.webp', alt: 'Yogur griego 16 oz servido con fruta', label: 'Detalle servido 16 oz' },
+        { src: '/Yogurt griego 16oz.png', alt: 'Presentación de yogur griego de 16 oz', label: 'Yogur griego 16 oz' },
+        { src: '/Yogures Griegos.png', alt: 'Variedad de yogures griegos TAJIRI', label: 'Yogures griegos' },
       ],
       '9 oz': [
-        { src: '/Yogurt griego 9oz- 1.webp', alt: 'Tarrina de yogur griego 9 oz con tapa', label: 'Tarrina elegante 9 oz' },
-        { src: '/Yogurt griego 9oz- 2.webp', alt: 'Yogur griego 9 oz servido con fruta', label: 'Detalle servido 9 oz' },
+        { src: '/Yogurt griego 9oz.png', alt: 'Presentación de yogur griego de 9 oz', label: 'Yogur griego 9 oz' },
+        { src: '/Yogures Griegos.png', alt: 'Variedad de yogures griegos TAJIRI', label: 'Yogures griegos' },
       ],
     },
-    coverImage: '/Portada Yogurt Griego.webp',
+    coverImage: '/Portada Yogurt Griego.png',
     imageLabel: 'Vaso Gold de plástico',
     features: ['Leche de búfala', 'Textura espesa y suave', 'Para frutas y granola', 'Elaboración artesanal'],
     images: [],
@@ -138,6 +137,28 @@ export const products: Product[] = [
     color: 'from-[#d68f2a] to-[#f8d27d]',
   },
   {
+    title: 'LEACTIVA',
+    subtitle: '¡Energía viva en cada sorbo!',
+    description:
+      '¡La naturaleza tiene una nueva forma de refrescarte! Descubre LEACTIVA®, una bebida botánica artesanal que combina frescura, delicadas burbujas y una extraordinaria experiencia de aromas y sabores. Una propuesta diferente, creada para quienes buscan salir de lo convencional y disfrutar una bebida refrescante, auténtica y llena de personalidad.',
+    details:
+      'Cuatro sabores para despertar tus sentidos: hierbabuena, frescura que cautiva; manzanilla, delicadeza y suavidad floral; limonaria, una explosión de frescura cítrica; y orégano, una experiencia aromática sorprendente. LEACTIVA®: activa tu energía, energía viva en cada sorbo. PRODUCTOS TAJIRI®: el placer de disfrutar lo auténtico.',
+    imageLabel: 'Bebida botánica artesanal',
+    features: [
+      'Frescura y delicadas burbujas',
+      'Hierbabuena',
+      'Manzanilla',
+      'Limonaria',
+      'Orégano',
+    ],
+    statusLabel: 'En desarrollo',
+    coverImage: '/Leactiva Portada.png',
+    images: [
+      { src: '/Leactiva 1.png', alt: 'Bebida botánica artesanal LEACTIVA', label: 'LEACTIVA' },
+    ],
+    color: 'from-[#2e6b3f] to-[#e4b45f]',
+  },
+  {
     title: 'Chakula Premium Café',
     subtitle: 'Malteada de café con funcionalidad',
     description: 'Bebida tipo malteada elaborada con extracto de café, fibra soluble y aceite Omega 3.',
@@ -145,7 +166,10 @@ export const products: Product[] = [
       'Chakula Premium Café combina el sabor del extracto de café con fibra soluble y aceite Omega 3, creando una bebida funcional con identidad y perfil premium.',
     imageLabel: 'Botella de plástico',
     features: ['Extracto de café', 'Fibra soluble', 'Aceite Omega 3', 'Bebida tipo malteada'],
-    images: [],
+    coverImage: '/Botella de café Chákula Premium 250 ml.png',
+    images: [
+      { src: '/Botella de café Chákula Premium 250 ml.png', alt: 'Botella de café Chákula Premium de 250 ml', label: 'Presentación de café 250 ml' },
+    ],
     color: 'from-[#6b3f1d] to-[#b96a2b]',
   },
   {
@@ -156,7 +180,10 @@ export const products: Product[] = [
       'Chakula Premium Cacao reúne el sabor del cacao con fibra soluble y aceite Omega 3 para ofrecer una opción indulgente con un enfoque funcional.',
     imageLabel: 'Botella de plástico',
     features: ['Extracto de cacao', 'Fibra soluble', 'Aceite Omega 3', 'Bebida tipo malteada'],
-    images: [],
+    coverImage: '/Botella premium de extracto de cacao.png',
+    images: [
+      { src: '/Botella premium de extracto de cacao.png', alt: 'Botella premium de extracto de cacao Chakula', label: 'Presentación de cacao' },
+    ],
     color: 'from-[#4a2a1a] to-[#8a4b2d]',
   },
   {
@@ -165,6 +192,7 @@ export const products: Product[] = [
     description: 'Café de origen con doble extracción para una experiencia más intensa y concentrada.',
     details:
       'Nala Peinate es un extracto de café de origen preparado con doble extracción, pensado para quienes valoran un café con cuerpo y perfil auténtico.',
+    statusLabel: 'En desarrollo',
     imageLabel: 'Botella de plástico',
     features: ['Extracto de café de origen', 'Doble extracción', 'Perfil intenso', 'Café concentrado'],
     images: [],
@@ -176,6 +204,7 @@ export const products: Product[] = [
     description: 'Preparado a partir de extracto de hierbas para aportar sabor a carnes y platos.',
     details:
       'TURARI es un aderezo líquido para carnes elaborado con extracto de hierbas, ideal para realzar sabores en preparaciones tradicionales y contemporáneas.',
+    statusLabel: 'En desarrollo',
     imageLabel: 'Botella de plástico',
     features: ['Aderezo líquido', 'Para carnes', 'Extracto de hierbas', 'Sabor auténtico'],
     images: [],

@@ -18,6 +18,7 @@ const navItems = [
 const conocenosSubmenu = [
   { label: 'Nuestra Historia', href: '/conocenos/nuestra-historia' },
   { label: 'Galería', href: '/conocenos/galeria' },
+  { label: 'Portafolio', href: '/conocenos/portafolio' },
 ];
 
 export default function Navbar() {

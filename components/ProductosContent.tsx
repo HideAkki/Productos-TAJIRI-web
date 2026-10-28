@@ -69,10 +69,12 @@ export default function ProductosPage() {
                   <div className="relative flex h-full flex-col justify-between p-6 text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.85)]">
                     <div className="flex items-center justify-between gap-3">
                       <span className="rounded-full bg-white/15 px-3 py-1 text-xs uppercase tracking-[0.25em] text-white/90">Producto</span>
-                      {product.size ? (
-                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-white">
-                          {product.size}
+                      {product.statusLabel ? (
+                        <span className="rounded-full bg-amber-300 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#4a2b22]">
+                          {product.statusLabel}
                         </span>
+                      ) : product.size ? (
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.25em] text-white">{product.size}</span>
                       ) : null}
                     </div>
                     <div>
