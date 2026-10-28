@@ -48,18 +48,15 @@ export default function HistoryModal({ item, open, onClose }: HistoryModalProps)
               ✕
             </button>
 
+            {item.image ? (
             <div className="relative h-[26rem] min-h-[18rem] overflow-hidden sm:h-96">
-              {item.image ? (
                 <>
                   <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 1024px, 95vw" className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#4a2b22]/85 via-transparent to-transparent" />
                 </>
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-[#f7f1e8] text-center text-sm uppercase tracking-[0.3em] text-[#4a2b22]/60">
-                  Imagen por definir
-                </div>
-              )}
+
             </div>
+            ) : null}
 
             <div className="flex-1 space-y-8 overflow-y-auto p-6 sm:p-8 lg:p-10">
               <div className="space-y-4">

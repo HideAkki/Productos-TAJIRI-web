@@ -26,7 +26,7 @@ export default function TimelineCard({ item, onOpen }: TimelineCardProps) {
       transition={{ type: 'spring', stiffness: 210, damping: 18 }}
       className="group relative w-full max-w-full overflow-hidden rounded-[2rem] border border-[#e4b45f]/15 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.06)] transition-all duration-300 hover:border-[#e4b45f]/30"
     >
-      <div className="grid gap-6 p-6 sm:grid-cols-[0.55fr_0.45fr] sm:items-center sm:p-8">
+      <div className={`grid gap-6 p-6 sm:items-center sm:p-8 ${item.image ? 'sm:grid-cols-[0.55fr_0.45fr]' : ''}`}>
         <div className="flex flex-col justify-between gap-6">
           <div className="space-y-4">
             <div className="flex items-start justify-between gap-4">
@@ -49,9 +49,9 @@ export default function TimelineCard({ item, onOpen }: TimelineCardProps) {
           </button>
         </div>
 
+        {item.image ? (
         <div className="overflow-hidden rounded-[1.75rem] border border-[#f3d48a]/15 bg-[#fdf7ef] shadow-inner">
           <div className="relative h-64 w-full sm:h-72">
-            {item.image ? (
               <Image
                 src={item.image}
                 alt={item.title}
@@ -59,13 +59,10 @@ export default function TimelineCard({ item, onOpen }: TimelineCardProps) {
                 sizes="(min-width: 640px) 40vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
               />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center bg-[#f7f1e8] text-center text-sm uppercase tracking-[0.3em] text-[#4a2b22]/60">
-                Imagen por definir
-              </div>
-            )}
+
           </div>
         </div>
+        ) : null}
       </div>
     </motion.article>
   );

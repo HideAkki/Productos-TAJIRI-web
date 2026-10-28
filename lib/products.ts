@@ -23,10 +23,10 @@ export type Product = {
 export const products: Product[] = [
   {
     title: 'Suero Costeño',
-    subtitle: 'Suavidad costera en cada cucharada',
-    description: 'Textura fresca y una tradición auténtica de la costa colombiana.',
+    subtitle: 'El sabor de nuestra tradición, con una cremosidad excepcional.',
+    description: 'Nuestro suero costeño artesanal reúne el carácter auténtico de la cocina colombiana con la riqueza de la leche de búfala.',
     details:
-      'Nuestro suero costeño es ligero, ligeramente salado y perfecto para complementar arepas, sopas o para marinar. Se consume con cuchara o sobre alimentos, y está disponible en dos formatos para llegar a la mesa con la dosis justa de frescura.',
+      'Su textura cremosa y su característico toque ligeramente ácido lo convierten en el acompañante perfecto para arepas, yuca, patacones, carnes y muchas otras delicias. TAJIRI®: tradición colombiana que se disfruta en cada bocado.',
     variants: ['16 oz', '9 oz'],
     variantDetails: {
       '16 oz': 'Formato de 16 oz con mayor rendimiento, ideal para compartir y conservar en refrigeración.',
@@ -46,16 +46,16 @@ export const products: Product[] = [
     },
     coverImage: '/Portada Suero.webp',
     imageLabel: 'Vaso Gold de plástico',
-    features: ['Cremoso', 'Elaborado artesanalmente', 'Leche de búfala', 'Conservación refrigerada'],
+    features: ['Textura cremosa', 'Toque ligeramente ácido', 'Leche de búfala', 'Elaboración artesanal'],
     images: [],
     color: 'from-[#8f1111] to-[#4a2b22]',
   },
   {
     title: 'Yogur Griego',
-    subtitle: 'Cuerpo cremoso, estilo sereno',
-    description: 'Crema espesa y nutritiva para tus recetas o momentos especiales.',
+    subtitle: 'Una cremosidad que conquista desde la primera cucharada.',
+    description: 'Descubre el auténtico placer de nuestro yogur griego artesanal, elaborado con leche de búfala cuidadosamente seleccionada.',
     details:
-      'Yogur griego artesanal con cuerpo cremoso y textura firme. Ideal para acompañar frutas, granola o recetas saladas que necesitan un frescor concentrado. Se consume a cuchara.',
+      'Su textura espesa, suave y aterciopelada, junto con su delicado sabor, lo convierten en una experiencia irresistible. Perfecto para disfrutar solo, acompañar con frutas, granola o crear desayunos y recetas especiales. TAJIRI®: cremosidad extraordinaria, sabor auténtico.',
     variants: ['16 oz', '9 oz'],
     variantDetails: {
       '16 oz': 'Formato de 16 oz, perfecto para bowls y desayunos con suficiente porción.',
@@ -73,44 +73,53 @@ export const products: Product[] = [
     },
     coverImage: '/Portada Yogurt Griego.webp',
     imageLabel: 'Vaso Gold de plástico',
-    features: ['Elaborado con leche de búfala', 'Textura consistente', 'Ideal en bowls', 'Artesanal'],
+    features: ['Leche de búfala', 'Textura espesa y suave', 'Para frutas y granola', 'Elaboración artesanal'],
     images: [],
     color: 'from-[#4a2b22] to-[#8f1111]',
   },
   {
     title: 'Yogurt Griego Bebible',
-    subtitle: 'Ligereza lista para llevar',
-    description: 'Listo para llevar, suave y delicado con cuerpo natural.',
+    subtitle: 'Toda la cremosidad de la búfala, ahora para llevar.',
+    description: 'Disfruta una experiencia diferente con nuestro yogur griego bebible, elaborado artesanalmente con leche de búfala.',
     details:
-      'Fresco y práctico, este yogurt griego bebible es perfecto para la mañana o merienda. Combina la riqueza de la leche búfala con una sensación ligera y nutritiva. Es un producto líquido que se bebe.',
+      'Su textura suave y fluida y su agradable sabor hacen de cada sorbo un pequeño placer. Ideal para acompañar tus mañanas, disfrutar entre comidas o llevar contigo a cualquier lugar. TAJIRI®: el placer de lo artesanal en cada sorbo.',
     size: '250 ml',
     imageLabel: 'Botella de plástico 250 ml',
-    features: ['Fresco y ligero', 'Producto fermentado', 'Ideal para la mañana', 'Conveniente'],
-    images: [],
+    features: ['Leche de búfala', 'Textura suave y fluida', 'Listo para llevar', 'Elaboración artesanal'],
+    coverImage: '/yogur griego bebible.png',
+    images: [
+      { src: '/yogur griego bebible.png', alt: 'Botella de yogur griego bebible de 250 ml', label: 'Presentación de 250 ml' },
+    ],
     color: 'from-[#e4b45f] to-[#f3d48a]',
   },
   {
     title: 'Su-Kukayo',
-    subtitle: 'Crujiente artesanal con carácter',
-    description: 'Un snack artesanal con un sabor que reconforta.',
+    subtitle: 'Ese irresistible crocante que nos recuerda el sabor de casa.',
+    description: 'Inspirado en el tradicional cucayo colombiano, SU-KUKAYO transforma el arroz en una experiencia artesanal llena de sabor y textura.',
     details:
-      'Crujiente y sabroso, el Su-Kukayo es una opción tradicional para compartir o disfrutar como snack. Su preparación artesanal garantiza textura y sabor auténtico.',
+      'Su carácter tostado y crocante despierta recuerdos de aquellas delicias que disfrutábamos en familia. Perfecto para quienes aman los sabores auténticos y buscan algo diferente para picar. SU-KUKAYO®: la tradición que cruje de felicidad.',
     size: '250 g',
     imageLabel: 'Vaso Gold de plástico',
-    features: ['Crujiente', 'Hecho a mano', 'Textura noble', 'Sabor reconfortante'],
-    images: [],
+    features: ['Elaborado con arroz', 'Textura crocante', 'Sabor tostado', 'Elaboración artesanal'],
+    coverImage: '/Vaso de su-kukayo de arroz crujiente.png',
+    images: [
+      { src: '/Vaso de su-kukayo de arroz crujiente.png', alt: 'Su-Kukayo de arroz crujiente en vaso con tapa', label: 'Presentación en vaso' },
+    ],
     color: 'from-[#8f1111] to-[#e4b45f]',
   },
   {
     title: 'Masa para Arepas',
-    subtitle: 'Tradición y bienestar en cada arepa',
-    description: 'Una opción artesanal para preparar arepas con un perfil nutritivo y auténtico.',
+    subtitle: 'La arepa de siempre, reinventada con el poder de la linaza.',
+    description: 'Disfruta el sabor tradicional de una buena arepa con nuestra masa artesanal elaborada a partir de maíz y linaza.',
     details:
-      'Elaborada con harina de maíz amarillo y linaza, esta masa está pensada para quienes buscan una opción amable para la digestión sin perder el sabor tradicional.',
+      'Una combinación especial que incorpora la fibra propia de la linaza a uno de los alimentos más queridos de nuestra mesa. Lista para preparar arepas frescas en casa, doraditas por fuera y deliciosas por dentro. TAJIRI®: tradición e innovación en cada arepa.',
     size: '1 libra',
     imageLabel: 'Empaque de masa para arepas',
-    features: ['Harina de maíz amarillo', 'Con linaza', 'Buena para la digestión', 'Preparación sencilla'],
-    images: [],
+    features: ['Maíz y linaza', 'Con fibra de linaza', 'Lista para preparar', 'Elaboración artesanal'],
+    coverImage: '/Barra de masa especiada envuelta en plástico.png',
+    images: [
+      { src: '/Barra de masa especiada envuelta en plástico.png', alt: 'Masa para arepas envuelta en plástico transparente', label: 'Presentación de masa para arepas' },
+    ],
     color: 'from-[#caa65d] to-[#7a4a20]',
   },
   {
@@ -118,11 +127,14 @@ export const products: Product[] = [
     subtitle: 'Maíz tostado con un toque dulce',
     description: 'Una golosina artesanal con el sabor del maíz tostado, el azúcar y el limón.',
     details:
-      'SARA Dulce combina maíz tostado y molido con azúcar y limón para ofrecer una golosina tradicional, crujiente y con un perfil dulce muy característico.',
+      'SARA Dulce combina maíz tostado y molido con azúcar y limón para ofrecer una golosina tradicional con un sabor dulce muy característico.',
     size: '250 g',
     imageLabel: 'Empaque de SARA Dulce',
     features: ['Maíz tostado y molido', 'Con azúcar y limón', 'Golosina artesanal', 'Sabor dulce característico'],
-    images: [],
+    coverImage: '/Bolsas transparentes con polvo beige.png',
+    images: [
+      { src: '/Bolsas transparentes con polvo beige.png', alt: 'SARA Dulce en bolsas transparentes con cierre', label: 'Presentación en bolsa' },
+    ],
     color: 'from-[#d68f2a] to-[#f8d27d]',
   },
   {
