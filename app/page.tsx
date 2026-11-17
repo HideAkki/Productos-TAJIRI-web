@@ -1,6 +1,5 @@
 import { pageMetadata } from '@/lib/site';
 import Hero from '@/components/Hero';
-import StickerDownloadBanner from '@/components/StickerDownloadBanner';
 import StatsSection from '@/components/StatsSection';
 import WhyBuffalo from '@/components/WhyBuffalo';
 import ProductShowcase from '@/components/ProductShowcase';
@@ -15,7 +14,6 @@ export default function Home() {
     <main className="relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,_rgba(228,180,95,0.16),transparent_28%)]" />
       <Hero />
-      <StickerDownloadBanner />
       <StatsSection />
       <WhyBuffalo />
       <ProductShowcase />

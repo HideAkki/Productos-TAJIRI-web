@@ -3,23 +3,10 @@ import { test, expect } from '@playwright/test';
 async function dismissNotice(page: import('@playwright/test').Page) {
   await page.getByRole('button', { name: 'Cerrar sin guardar' }).click();
 }
-test('el banner de Nala permite descargar el pack de stickers para WhatsApp', async ({ page }) => {
+test('el banner de stickers de Nala está oculto temporalmente', async ({ page }) => {
   await page.goto('/');
-  const downloadLink = page.getByRole('link', { name: 'Descargar el pack de stickers de Nala para WhatsApp' });
-  await expect(downloadLink).toBeVisible();
-  await expect(downloadLink).toHaveAttribute('download', 'NALA - Productos TAJIRI®.wastickers');
-  await expect(downloadLink.locator('img')).toHaveAttribute('alt', '¡Descarga el pack de stickers de Nala!');
-  const fileResponse = await page.request.get('/NALA%20-%20Productos%20TAJIRI%C2%AE.wastickers');
-  expect(fileResponse.ok()).toBe(true);
-  const downloadPromise = page.waitForEvent('download');
-  await downloadLink.click();
-  const download = await downloadPromise;
-  expect(download.suggestedFilename()).toBe('NALA - Productos TAJIRI®.wastickers');
-  const tutorialDialog = page.getByRole('dialog', { name: 'Guía para instalar los stickers de Nala en WhatsApp' });
-  await expect(tutorialDialog).toBeVisible();
-  await expect(tutorialDialog.getByRole('img', { name: 'Guía para instalar los stickers de Nala en WhatsApp' })).toBeVisible();
-  await tutorialDialog.getByRole('button', { name: 'Cerrar guía de stickers' }).click();
-  await expect(tutorialDialog).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Descargar el pack de stickers de Nala para WhatsApp' })).toHaveCount(0);
+  await expect(page.getByRole('dialog', { name: 'Guía para instalar los stickers de Nala en WhatsApp' })).toHaveCount(0);
 });
 test('las páginas tienen título y un encabezado principal', async ({ page }) => {
   for (const path of ['/', '/productos', '/contacto', '/blog', '/conocenos/nuestra-historia', '/conocenos/galeria', '/privacidad', '/cookies']) {
